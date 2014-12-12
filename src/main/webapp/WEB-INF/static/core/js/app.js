@@ -9,9 +9,10 @@ $app.config(function($routeProvider, $httpProvider) {
 		.when('/veiculo/:id', { controller: viewController, templateUrl : SERVER_URL + '/view'})
 		// marca 
 		.when('/marca/get/list', { controller: marcaController, templateUrl: SERVER_URL + '/marca/get/list' })
-		.when('/marca/:id', 	 { controller: marcaController, 	templateUrl: SERVER_URL + '/marca/view'})
-		//.when('/marca/edit/:id', { controller: marcaController, 	templateUrl: SERVER_URL + '/marca/form'})
-		.otherwise({redirectTo : '/'});
+		.when('/marca/:id', 	 { controller: marcaController, templateUrl: SERVER_URL + '/marca/view'})
+		.when('/marca/edit/:id', { controller: marcaController, templateUrl: SERVER_URL + '/marca/form'})
+		//.otherwise({redirectTo : '/'})
+		;
 	
 	$httpProvider.responseInterceptors.push(function($q,$rootScope) {
 		
@@ -61,7 +62,7 @@ $app.run(function($rootScope) {
 	};
 	
 	
-	// Obsoleto
+	// TODO Obsoleto
 	$rootScope.veiculos = [ {
 		id : 1,
 		placa : 'EVB5455'
@@ -87,11 +88,10 @@ $app.filter('startFrom', function() {
 
 
 
-// Obsoleto
+// TODO Obsoleto
 function listController($scope) {
 
 }
-
 function viewController($scope, $location, $routeParams) {
 
 	$scope.title = "Veiculo ";

@@ -36,7 +36,7 @@
 	<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
 		<div class="container">
 			<div class="navbar-header">
-				<a href="index.html" class="navbar-brand">Veículos</a>
+				<a href="index.html" class="navbar-brand">Veiculos</a>
 				<button class="navbar-toggle" type="button" data-toggle="collapse"
 					data-target="#navbar-main">
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
@@ -75,7 +75,7 @@
 						data-toggle="dropdown" href="#" id="themes">Cadastros <span
 							class="caret"></span></a>
 						<ul class="dropdown-menu" aria-labelledby="themes">
-							<li><a href="/">Veículos</a></li>
+							<li><a href="/">Veiculos</a></li>
 							<li class="divider"></li>
 							<li><a
 								href="${pageContext.request.contextPath}/#/marca/get/list">Marcas</a></li>
@@ -98,8 +98,8 @@
 		<div class="page-header" id="banner">
 			<div class="row">
 				<div class="col-lg-8 col-md-7 col-sm-6">
-					<h1>Tecno Veículos</h1>
-					<p class="lead">Veículos novos e seminovos</p>
+					<h1>Tecno Veiculos</h1>
+					<p class="lead">Veiculos novos e seminovos</p>
 				</div>
 				<div class="col-lg-4 col-md-5 col-sm-6">
 					<div class="sponsor">

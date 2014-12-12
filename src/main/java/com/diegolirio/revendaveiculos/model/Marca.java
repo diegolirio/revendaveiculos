@@ -41,6 +41,8 @@ public class Marca {
 		this.urlImage = urlImage;
 	}
 
+
+
 //	public Set<Modelo> getModelos() {
 //		return modelos;
 //	}
@@ -49,7 +51,10 @@ public class Marca {
 //		this.modelos = modelos;
 //	}
 	
-	
+	@Override
+	public String toString() {
+		return "Marca [id=" + id + ", descricao=" + descricao + ", urlImage=" + urlImage + "]";
+	}	
 	
 	
 }

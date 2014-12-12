@@ -19,11 +19,18 @@ public class MarcaService {
 	}
 
 	public void save(Marca marca) {
-		this.marcaDao.save(marca);
+		if(marca.getId() > 0) 
+			this.marcaDao.update(marca); 
+		else
+			this.marcaDao.save(marca);
 	}
 
 	public Marca get(long id) {
 		return this.marcaDao.get(Marca.class, id);
+	}
+
+	public void delete(long id) {
+		this.marcaDao.delete(Marca.class, id);		
 	}
 	
 }

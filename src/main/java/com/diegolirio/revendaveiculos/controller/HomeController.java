@@ -47,6 +47,7 @@ public class HomeController {
 		// se nao existe Ferrari 
 		Marca ferrari = new Marca();
 		ferrari.setDescricao("Ferrari");
+		ferrari.setUrlImage("http://localhost:8080/revendaveiculos/static/images/marcas/ferrari.png");
 		this.marcaService.save(ferrari); 
 		return "index";
 	}

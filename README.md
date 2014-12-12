@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 revenda-veiculos
 ================
 
@@ -23,3 +24,9 @@ Revenda de Veiculos - Projeto TCC
 
 - MVC 
   - view ==> controller ==> service ==> dao ==> database
+=======
+revendaveiculos
+===============
+
+Revenda de veiculos - Projeto TCC
+>>>>>>> 8ab70ec74efc771c33af6012a04668c2d0c0fa1b

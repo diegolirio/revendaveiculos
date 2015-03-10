@@ -1,3 +1,5 @@
+<!-- Pagina de Exclusiva de um registro, normalmente busca realizada por ID -->
+
 <div class="pull-right">
 	<a href="#/marca/edit/0" class="btn btn-default">Nova</a>
 </div>

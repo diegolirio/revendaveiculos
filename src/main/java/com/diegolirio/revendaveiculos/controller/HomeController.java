@@ -27,15 +27,23 @@ public class HomeController {
 		return "test";
 	}
 	
+	// nao utilizado
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home() {
+	public String index() {
 		return "index";
 	}
+	
+
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String home() {
+		// Busca veiculos somente da pagina Home
+		return "home";
+	}			
 	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String list() {
 		return "list";
-	}		
+	}
 	
 	@RequestMapping(value = "/view", method = RequestMethod.GET)
 	public String view() {

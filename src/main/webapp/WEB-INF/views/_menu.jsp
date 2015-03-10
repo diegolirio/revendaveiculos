@@ -20,13 +20,13 @@
                 <div class="navbar-right">
                     <ul class="nav navbar-nav">
 						
-						<li ng-hide="userCtrl.isLoggedIn"><a href="#/usuario/login?next=${requestScope['javax.servlet.forward.request_uri']}"><i class="fa fa-sign-in"></i> Login</a></li>						
+						<li ng-hide="usuarioCtrl.isLoggedIn"><a href="#/login?next=${requestScope['javax.servlet.forward.request_uri']}"><i class="fa fa-sign-in"></i> Login</a></li>						
 						 
 	                        <!-- User Account: style can be found in dropdown.less -->
-	                    <li class="dropdown user user-menu" ng-show="userCtrl.isLoggedIn">
+	                    <li class="dropdown user user-menu" ng-show="usuarioCtrl.isLoggedIn">
 	                            <a href="javascript:undefined" class="dropdown-toggle" data-toggle="dropdown">
 	                                <i class="glyphicon glyphicon-user"></i>
-	                                <span>{{userCtrl.user.nickname}} <i class="caret"></i></span>
+	                                <span>{{usuarioCtrl.usuario.nome}} <i class="caret"></i></span>
 	                            </a>
 	                            
 	                            <ul class="dropdown-menu">
@@ -34,7 +34,7 @@
 	                                <li class="user-header bg-light-blue">
 	                                    <img src="${pageContext.request.contextPath}/static/adminlte-master/img/avatar-215x215.png" class="img-circle" alt="User Image" />
 	                                    <p>
-	                                        {{userCtrl.user.nickname}}
+	                                        {{usuarioCtrl.usuario.nome}}
 											<!-- <small>Member since Nov. 2012</small> -->
 	                                    </p>
 	                                </li>
@@ -53,10 +53,10 @@
 	                                <!-- Menu Footer-->
 	                                <li class="user-footer">
 	                                    <div class="pull-left">
-	                                        <a href="#/usuario/cadastro/{{userCtrl.user.nickname}}" class="btn btn-default btn-flat">Perfil</a>
+	                                        <a href="#/usuario/cadastro/{{usuarioCtrl.usuario.nome}}" class="btn btn-default btn-flat">Perfil</a>
 	                                    </div>
 	                                    <div class="pull-right">
-	                                        <a href="${pageContext.request.contextPath}/usuario/logout" class="btn btn-default btn-flat">Sair</a>
+	                                        <a href="#/logout" class="btn btn-default btn-flat">Sair</a>
 	                                    </div>
 	                                </li>
 	                            </ul>

@@ -3,7 +3,9 @@ var app = angular.module('app', ['ngRoute']);
 app.config(['$routeProvider', function($routeProvider) {
 	
 	$routeProvider
-		.when('/', { templateUrl: '/revendaveiculos/home' } );
+		.when('/',      { templateUrl: '/revendaveiculos/home' } )
+		// usuario
+		.when('/login', { templateUrl: '/revendaveiculos/usuario/page/login' });
 	
 }]);
 

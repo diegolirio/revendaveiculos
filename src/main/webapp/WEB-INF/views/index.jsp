@@ -33,7 +33,7 @@
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body class="skin-blue" ng-controller="UserController as userCtrl">
+    <body class="skin-blue" ng-controller="UsuarioController as usuarioCtrl">
     
 		<jsp:include page="_menu.jsp"></jsp:include>
 		
@@ -53,17 +53,19 @@
 <%-- 				<script src="${pageContext.request.contextPath}/static/core/js/app.js"></script> --%>
 <%-- 		<script src="${pageContext.request.contextPath}/static/core/js/votingController.js"></script> --%>
 
-
+		
+		<!-- ########################## AngularJS ############################# -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular-route.js"></script>
 		<!-- rotas e config da app angular -->
-		<script src="${pageContext.request.contextPath}/static/core/js/app.js"></script>
+		<script src="${pageContext.request.contextPath}/static/core/js/app.js"></script> 
 		<!-- Services -->
-		<%-- 		<script src="${pageContext.request.contextPath}/static/core/js/userService.js"></script> --%>
+		<script src="${pageContext.request.contextPath}/static/core/js/service/UsuarioService.js"></script>
 		<!-- Controllers -->
-		<script src="${pageContext.request.contextPath}/static/core/js/UserController.js"></script>	
   		<script src="${pageContext.request.contextPath}/static/core/js/HomeController.js"></script>  		
-  		  		
+		<script src="${pageContext.request.contextPath}/static/core/js/UsuarioController.js"></script>	
+  		<script src="${pageContext.request.contextPath}/static/core/js/controller/UsuarioLoginController.js"></script>  		
+  		<!-- ########################## End AngularJS ############################# -->
   		
         <!-- jQuery 2.0.2 -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>

@@ -3,12 +3,12 @@
                 <!-- sidebar: style can be found in sidebar.less -->
                 <section class="sidebar">
 	                    <!-- Sidebar user panel -->
-	                    <div class="user-panel" ng-show="userCtrl.isLoggedIn"> 
+	                    <div class="user-panel" ng-show="usuarioCtrl.isLoggedIn"> 
 	                        <div class="pull-left image">
 	                            <img src="${pageContext.request.contextPath}/static/adminlte-master/img/avatar-215x215.png" class="img-circle" alt="User Image" />
 	                        </div>
 	                        <div class="pull-left info">
-	                            <p>Olá, {{userCtrl.user.nickname}}</p>
+	                            <p>Olá, {{usuarioCtrl.usuario.nome}}</p>
 	                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
 	                        </div>
 	                    </div> 
@@ -26,12 +26,17 @@
                     <ul class="sidebar-menu">
                         <li class="active">
                             <a href="#/votacao/s">
-                                <i class="fa fa-globe"></i> <span>Votações</span> <!-- <small class="badge pull-right bg-green">novo</small> -->
+                                <i class="fa fa-star-o"></i> <span>Mais Veículos...</span> <!-- <small class="badge pull-right bg-green">novo</small> -->
                             </a>
                         </li>
-                        <li ng-show="userCtrl.user != null">
+                        <li class="active">
+                            <a href="#/localizacao/s">
+                                <i class="fa fa-globe"></i> <span>Localização</span> <!-- <small class="badge pull-right bg-green">novo</small> -->
+                            </a>
+                        </li>                        
+                        <li ng-show="usuarioCtrl.usuario != null">
                         	<a href="#/votacao/my">
-                        		<i class="fa fa-star-o"></i> <span>Minhas votações</span>
+                        		<i class="fa fa-star-o"></i> <span>Cadastrar Novo Veículo</span>
                         	</a>
                         </li>                        
                         <!-- 

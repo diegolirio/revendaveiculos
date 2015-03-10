@@ -20,7 +20,7 @@
                 <div class="navbar-right">
                     <ul class="nav navbar-nav">
 						
-						<li ng-hide="usuarioCtrl.isLoggedIn"><a href="#/login?next=${requestScope['javax.servlet.forward.request_uri']}"><i class="fa fa-sign-in"></i> Login</a></li>						
+						<li ng-hide="usuarioCtrl.isLoggedIn"><a href="#/login"><i class="fa fa-sign-in"></i> Login</a></li>						
 						 
 	                        <!-- User Account: style can be found in dropdown.less -->
 	                    <li class="dropdown user user-menu" ng-show="usuarioCtrl.isLoggedIn">
@@ -56,7 +56,7 @@
 	                                        <a href="#/usuario/cadastro/{{usuarioCtrl.usuario.nome}}" class="btn btn-default btn-flat">Perfil</a>
 	                                    </div>
 	                                    <div class="pull-right">
-	                                        <a href="#/logout" class="btn btn-default btn-flat">Sair</a>
+	                                        <a href ng-click="usuarioCtrl.logout()" class="btn btn-default btn-flat">Sair</a>
 	                                    </div>
 	                                </li>
 	                            </ul>

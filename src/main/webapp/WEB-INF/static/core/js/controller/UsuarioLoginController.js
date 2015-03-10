@@ -1,7 +1,7 @@
 /**
  * UsuarioLoginController
  */
-app.controller('UsuarioLoginController', ['$scope', 'UsuarioService', function($scope, UsuarioService) {
+app.controller('UsuarioLoginController', ['$scope', '$window', 'UsuarioService', function($scope, $window, UsuarioService) {
 	
 	var self = this;
 	/*
@@ -18,7 +18,11 @@ app.controller('UsuarioLoginController', ['$scope', 'UsuarioService', function($
 	 * Efetua o Login
 	 */
 	self.login = function(usuario) {
-		alert(JSON.stringify(usuario));
+		UsuarioService.login(usuario).then(function(resp) {
+			$window.location.href = '/revendaveiculos';
+		}, function(error) {
+			alert(error.data);
+		});
 	};
 	
 	

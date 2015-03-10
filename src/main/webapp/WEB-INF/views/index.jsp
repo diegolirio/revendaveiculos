@@ -54,18 +54,18 @@
 <%-- 		<script src="${pageContext.request.contextPath}/static/core/js/votingController.js"></script> --%>
 
 		
-		<!-- ########################## AngularJS ############################# -->
+		<!-- ########################## AngularJS ########################################################################### -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular-route.js"></script>
-		<!-- rotas e config da app angular -->
+		<!--------- rotas e config da app angular ------------------->
 		<script src="${pageContext.request.contextPath}/static/core/js/app.js"></script> 
-		<!-- Services -->
+		<!--------- Services ---------------->
 		<script src="${pageContext.request.contextPath}/static/core/js/service/UsuarioService.js"></script>
-		<!-- Controllers -->
-  		<script src="${pageContext.request.contextPath}/static/core/js/HomeController.js"></script>  		
-		<script src="${pageContext.request.contextPath}/static/core/js/UsuarioController.js"></script>	
+		<!--------- Controllers ------------->
+  		<script src="${pageContext.request.contextPath}/static/core/js/controller/HomeController.js"></script>  		
+		<script src="${pageContext.request.contextPath}/static/core/js/controller/UsuarioController.js"></script>	
   		<script src="${pageContext.request.contextPath}/static/core/js/controller/UsuarioLoginController.js"></script>  		
-  		<!-- ########################## End AngularJS ############################# -->
+  		<!-- ########################## End AngularJS ####################################################################### -->
   		
         <!-- jQuery 2.0.2 -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>

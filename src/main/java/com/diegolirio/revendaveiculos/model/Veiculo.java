@@ -45,6 +45,25 @@ public class Veiculo {
 	@OneToMany(mappedBy="veiculo")
 	private List<Foto> fotos;
 
+	public Veiculo() {}
+	
+	public Veiculo(long id, String renavam, String placa, double km,
+				   String chassi, Versao versao, Cor cor, int anoFabricacao,
+				   int anoModelo, List<Opcional> opcionais, Date dataVenda, Loja loja) {
+		this.id = id;
+		this.renavam = renavam;
+		this.placa = placa;
+		this.km = km;
+		this.chassi = chassi;
+		this.versao = versao;
+		this.cor = cor;
+		this.anoFabricacao = anoFabricacao;
+		this.anoModelo = anoModelo;
+		this.opcionais = opcionais;
+		this.dataVenda = dataVenda;
+		this.loja = loja;
+	}		
+	
 	public long getId() {
 		return id;
 	}

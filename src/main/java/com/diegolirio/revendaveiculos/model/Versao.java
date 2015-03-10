@@ -18,8 +18,14 @@ public class Versao {
 	@ManyToOne
 	private Modelo modelo;
 	
-	@ManyToOne
-	private Versao versao;
+	public Versao() {}
+	
+	public Versao(long id, String descricao, float motor, Modelo modelo) {
+		this.id = id;
+		this.descricao = descricao;
+		this.motor = motor;
+		this.modelo = modelo;
+	}
 
 	public long getId() {
 		return id;
@@ -53,14 +59,6 @@ public class Versao {
 		this.modelo = modelo;
 	}
 
-	public Versao getVersao() {
-		return versao;
-	}
-
-	public void setVersao(Versao versao) {
-		this.versao = versao;
-	}
-	
 	
 	
 }

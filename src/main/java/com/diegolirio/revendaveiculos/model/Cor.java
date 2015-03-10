@@ -9,7 +9,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Cor {
-
+	
 	@Id @GeneratedValue
 	private long id;
 	
@@ -18,6 +18,14 @@ public class Cor {
 	@OneToMany(mappedBy="cor")
 	private Set<Veiculo> veiculos;
 
+	public Cor() {}
+	
+	public Cor(long id, String descricao, Set<Veiculo> veiculos) {
+		this.id = id;
+		this.descricao = descricao;
+		this.veiculos = veiculos;
+	}		
+	
 	public long getId() {
 		return id;
 	}

@@ -32,6 +32,13 @@ public class Loja {
 	@OneToMany(mappedBy="loja")
 	private List<Veiculo> veiculos;
 
+	public Loja() {}
+	
+	public Loja(long id, String descricao) {
+		this.id = id;
+		this.descricao = descricao;
+	}
+
 	public long getId() {
 		return id;
 	}

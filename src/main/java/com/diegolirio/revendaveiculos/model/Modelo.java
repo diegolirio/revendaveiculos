@@ -19,6 +19,14 @@ public class Modelo {
 //	@ManyToOne
 //	private Tipo tipo;
 
+	public Modelo() {}
+	
+	public Modelo(long id, String descricao, Marca marca) {
+		this.id = id;
+		this.descricao = descricao;
+		this.marca = marca;
+	}
+
 	public long getId() {
 		return id;
 	}

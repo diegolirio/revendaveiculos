@@ -15,16 +15,23 @@ public class Versao {
 	
 	private float motor; // 1.4
 	
+	private int anoFabricacao;
+	
+	private int anoModelo;
+		
+	
 	@ManyToOne
 	private Modelo modelo;
 	
 	public Versao() {}
 	
-	public Versao(long id, String descricao, float motor, Modelo modelo) {
+	public Versao(long id, String descricao, float motor, Modelo modelo, int anoFabricacao, int anoModelo) {
 		this.id = id;
 		this.descricao = descricao;
 		this.motor = motor;
 		this.modelo = modelo;
+		this.anoFabricacao = anoFabricacao;
+		this.anoModelo = anoModelo;
 	}
 
 	public long getId() {
@@ -57,6 +64,22 @@ public class Versao {
 
 	public void setModelo(Modelo modelo) {
 		this.modelo = modelo;
+	}
+
+	public int getAnoFabricacao() {
+		return anoFabricacao;
+	}
+
+	public void setAnoFabricacao(int anoFabricacao) {
+		this.anoFabricacao = anoFabricacao;
+	}
+
+	public int getAnoModelo() {
+		return anoModelo;
+	}
+
+	public void setAnoModelo(int anoModelo) {
+		this.anoModelo = anoModelo;
 	}
 
 	

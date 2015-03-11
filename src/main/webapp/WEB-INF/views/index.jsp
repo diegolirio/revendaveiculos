@@ -61,6 +61,7 @@
 		<script src="${pageContext.request.contextPath}/static/core/js/app.js"></script> 
 		<!--------- Services ---------------->
 		<script src="${pageContext.request.contextPath}/static/core/js/service/UsuarioService.js"></script>
+		<script src="${pageContext.request.contextPath}/static/core/js/service/VeiculoService.js"></script>
 		<!--------- Controllers ------------->
   		<script src="${pageContext.request.contextPath}/static/core/js/controller/HomeController.js"></script>  		
 		<script src="${pageContext.request.contextPath}/static/core/js/controller/UsuarioController.js"></script>	

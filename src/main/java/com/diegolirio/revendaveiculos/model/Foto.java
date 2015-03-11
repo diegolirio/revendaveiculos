@@ -18,6 +18,15 @@ public class Foto {
 	@ManyToOne
 	private Veiculo veiculo;
 
+	public Foto() {}
+	
+	public Foto(long id, String uri, boolean principal, Veiculo veiculo) {
+		this.id = id;
+		this.uri = uri;
+		this.principal = principal;
+		this.veiculo = veiculo;
+	}
+
 	public long getId() {
 		return id;
 	}

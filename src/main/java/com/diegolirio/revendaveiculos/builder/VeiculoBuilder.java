@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.diegolirio.revendaveiculos.model.Cor;
+import com.diegolirio.revendaveiculos.model.Foto;
 import com.diegolirio.revendaveiculos.model.Loja;
 import com.diegolirio.revendaveiculos.model.Opcional;
 import com.diegolirio.revendaveiculos.model.Veiculo;
@@ -25,15 +26,15 @@ public class VeiculoBuilder {
 	
 	private Cor cor;
 	
-	private int anoFabricacao;
-	
-	private int anoModelo;
-	
 	private List<Opcional> opcionais;
 	
 	private Date dataVenda;
 	
 	private Loja loja;
+
+	private List<Foto> fotos;
+
+	private String urlFotoPrincipal;
 	
 	public VeiculoBuilder comId(long id) {
 		this.id = id;
@@ -69,16 +70,6 @@ public class VeiculoBuilder {
 		this.cor = cor;
 		return this;
 	}
-	
-	public VeiculoBuilder comAnoFabricacao(int anoFabricacao) {
-		this.anoFabricacao = anoFabricacao;
-		return this;
-	}	
-	
-	public VeiculoBuilder comAnoModelo(int anoModelo) {
-		this.anoModelo = anoModelo;
-		return this;
-	}	
 
 	public VeiculoBuilder comOpcionais(List<Opcional> opcionais) {
 		this.opcionais = opcionais;
@@ -94,8 +85,20 @@ public class VeiculoBuilder {
 		this.loja = loja;
 		return this;
 	}	
+
+	public VeiculoBuilder comFotos(List<Foto> fotos) {
+		this.fotos = fotos;
+		return this;
+	}
+
+	public VeiculoBuilder comUrlFotoPrincipal(String urlFotoPrincipal) {
+		this.urlFotoPrincipal = urlFotoPrincipal;
+		return this;
+	}
 	
 	public Veiculo getInstance() {
-		return new Veiculo(id, renavam, placa, km, chassi, versao, cor, anoFabricacao, anoModelo, opcionais, dataVenda, loja);
+		return new Veiculo(id, renavam, placa, km, chassi, versao, cor, opcionais, dataVenda, loja, urlFotoPrincipal, fotos);
 	}
+
+
 }

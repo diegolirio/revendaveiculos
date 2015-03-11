@@ -17,6 +17,14 @@ public class Marca {
 //	@OneToMany(mappedBy="marca")
 //	private Set<Modelo> modelos;
 	
+	public Marca() {}
+	
+	public Marca(long id, String descricao, String urlImage) {
+		this.id = id;
+		this.descricao = descricao;
+		this.urlImage = urlImage;
+	}
+
 	public long getId() {
 		return id;
 	}

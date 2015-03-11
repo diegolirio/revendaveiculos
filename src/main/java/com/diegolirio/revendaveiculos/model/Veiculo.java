@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -30,10 +31,6 @@ public class Veiculo {
 	@ManyToOne
 	private Cor cor;
 	
-	private int anoFabricacao;
-	
-	private int anoModelo;
-	
 	@ManyToMany
 	private List<Opcional> opcionais;
 	
@@ -41,15 +38,14 @@ public class Veiculo {
 	
 	@ManyToOne
 	private Loja loja;
+	
+	private String urlFotoPrincipal;
 
-	@OneToMany(mappedBy="veiculo")
+	@OneToMany(mappedBy="veiculo", fetch=FetchType.LAZY)
 	private List<Foto> fotos;
 
-	public Veiculo() {}
-	
-	public Veiculo(long id, String renavam, String placa, double km,
-				   String chassi, Versao versao, Cor cor, int anoFabricacao,
-				   int anoModelo, List<Opcional> opcionais, Date dataVenda, Loja loja) {
+	public Veiculo(long id, String renavam, String placa, double km, String chassi, Versao versao, 
+			       Cor cor, List<Opcional> opcionais, Date dataVenda, Loja loja, String urlFotoPrincipal, List<Foto> fotos) {
 		this.id = id;
 		this.renavam = renavam;
 		this.placa = placa;
@@ -57,13 +53,21 @@ public class Veiculo {
 		this.chassi = chassi;
 		this.versao = versao;
 		this.cor = cor;
-		this.anoFabricacao = anoFabricacao;
-		this.anoModelo = anoModelo;
 		this.opcionais = opcionais;
 		this.dataVenda = dataVenda;
 		this.loja = loja;
+		this.fotos = fotos;
+		this.urlFotoPrincipal = urlFotoPrincipal;
 	}		
 	
+	public String getUrlFotoPrincipal() {
+		return urlFotoPrincipal;
+	}
+
+	public void setUrlFotoPrincipal(String urlFotoPrincipal) {
+		this.urlFotoPrincipal = urlFotoPrincipal;
+	}
+
 	public long getId() {
 		return id;
 	}
@@ -142,22 +146,6 @@ public class Veiculo {
 
 	public void setLoja(Loja loja) {
 		this.loja = loja;
-	}
-
-	public int getAnoFabricacao() {
-		return anoFabricacao;
-	}
-
-	public void setAnoFabricacao(int anoFabricacao) {
-		this.anoFabricacao = anoFabricacao;
-	}
-
-	public int getAnoModelo() {
-		return anoModelo;
-	}
-
-	public void setAnoModelo(int anoModelo) {
-		this.anoModelo = anoModelo;
 	}
 
 	public List<Foto> getFotos() {

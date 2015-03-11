@@ -1,4 +1,18 @@
-revenda-veiculos
+#Universidade Nove de Julho
+##Ciência da Computação
+
+###### Diego Lirio Damacena   Pereira
+###### Tatiane Santos da Silva
+
+## Mapeamento Objeto Relacional
+
+###### Orientador: Prof. Dr. Ovidio
+
+###### São Paulo @2014-2015
+===================================
+
+
+#revenda-veiculos
 ================
 
 Revenda de Veiculos - Projeto TCC

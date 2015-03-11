@@ -41,7 +41,7 @@ Projeto Conclusão de Curso
 #Revenda de Veiculos
 ###### Aplicação
 
-> A aplicação será uma aplicação web simples, trata-se de um website de loja de veículos, onde o cliente poderá entrar na página web e ver os veículos disponiveis a venda, selecionar o veículo desejado e realizar uma ficha, para analise. O funcionário da Empresa de veículos receberá as informações da ficha enviada, podendo atualizar o Estado da ficha para "Em andamento/Em analise com a financiadora/Reprovada/Aprovada".
+> A aplicação será uma aplicação web simples, trata-se de um website de loja de veículos, onde o cliente poderá entrar na página web e ver os veículos disponiveis a venda, selecionar o veículo desejado e preencher uma ficha para analise. O funcionário da Empresa de veículos receberá as informações da ficha enviada, podendo atualizar o Estado da ficha para "Em andamento/Em analise com a financiadora/Reprovada/Aprovada".
 
 
 ## Passos para apresentação

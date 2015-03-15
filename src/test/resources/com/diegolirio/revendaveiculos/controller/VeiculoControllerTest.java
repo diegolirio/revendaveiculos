@@ -3,6 +3,7 @@ package com.diegolirio.revendaveiculos.controller;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -41,12 +42,12 @@ public class VeiculoControllerTest {
 	/*
 	 * Test Pages
 	 */
-//	@Test
-//	public void testDeveRetornarPaginaVeiculos() throws Exception {
-//		mockMvc.perform(get("/veiculo/view/list"))
-//				.andExpect(status().isOk())
-//				.andExpect(view().name("veiculo/list"));
-//	}		
+	@Test
+	public void testDeveRetornarPaginaVeiculo() throws Exception {
+		mockMvc.perform(get("/veiculo/page/view"))
+				.andExpect(status().isOk())
+				.andExpect(view().name("veiculo/view"));
+	}		
 	
 	/*
 	 * Test Rest Full

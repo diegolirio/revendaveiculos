@@ -18,10 +18,28 @@ import com.diegolirio.revendaveiculos.service.VeiculoService;
 public class VeiculoController {
 
 	@Autowired
-	private VeiculoService veiculoService;
+	private VeiculoService veiculoService; 
+	
+	/*
+	 * Pages
+	 */
+	
+	/**
+	 * Retorna uma String indicando qual a view deve ser carregada
+	 * @return String
+	 */
+	@RequestMapping(value="/page/view", method=RequestMethod.GET)
+	public String pageView() {
+		return "veiculo/view";
+	}
 
 	/*
 	 * Rest Full
+	 */
+	
+	/**
+	 * Retorna somente os veiculos favoritos para a pagina home
+	 * @return JSON
 	 */
 	@RequestMapping(value="/get/list/home", method=RequestMethod.GET, produces="aplication/json")
 	public ResponseEntity<String> getListHome() {

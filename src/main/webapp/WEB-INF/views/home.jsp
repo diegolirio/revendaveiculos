@@ -13,11 +13,13 @@
 	                 </div>
 	             </div>
 	             <div class="box-body">
-			             <img src="{{v.urlFotoPrincipal}}" alt="{{v.versao.modelo.marca.descricao}} {{v.versao.modelo.descricao}}" class="img-rounded">
+			             <a href="#/veiculo/{{v.id}}">
+			             	<img src="{{v.urlFotoPrincipal}}" alt="{{v.versao.modelo.marca.descricao}} {{v.versao.modelo.descricao}}" class="img-rounded">
+			             </a>
 			             <div class="caption">
 			                 <h3>{{v.versao.modelo.marca.descricao}} {{v.versao.modelo.descricao}} {{v.versao.descricao}} {{v.versao.anoModelo}}</h3>
 <!-- 			                 <p>...</p> -->
-			                 <p><a href="#" class="btn btn-warning">mais detalhes...</a> 
+			                 <p><a href="#/veiculo/{{v.id}}" class="btn btn-warning">mais detalhes...</a> 
 			             </div>
 	             </div><!-- /.box-body -->
 	         </div><!-- /.box -->

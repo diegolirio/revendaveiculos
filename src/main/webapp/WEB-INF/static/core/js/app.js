@@ -5,7 +5,9 @@ app.config(['$routeProvider', function($routeProvider) {
 	$routeProvider
 		.when('/',      { templateUrl: '/revendaveiculos/paginaInicial' } )
 		// usuario
-		.when('/login', { templateUrl: '/revendaveiculos/usuario/page/login' });
+		.when('/login', { templateUrl: '/revendaveiculos/usuario/page/login' })
+		// veiculo
+		.when('veiculo/:id', { templateUrl: '/revendaveiculos/veiculo/page/view' } );
 	
 }]);
 

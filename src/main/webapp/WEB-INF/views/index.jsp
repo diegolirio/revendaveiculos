@@ -66,6 +66,7 @@
   		<script src="${pageContext.request.contextPath}/static/core/js/controller/HomeController.js"></script>  		
 		<script src="${pageContext.request.contextPath}/static/core/js/controller/UsuarioController.js"></script>	
   		<script src="${pageContext.request.contextPath}/static/core/js/controller/UsuarioLoginController.js"></script>  		
+  		<script src="${pageContext.request.contextPath}/static/core/js/controller/VeiculoViewController.js"></script>
   		<!-- ########################## End AngularJS ####################################################################### -->
   		
         <!-- jQuery 2.0.2 -->

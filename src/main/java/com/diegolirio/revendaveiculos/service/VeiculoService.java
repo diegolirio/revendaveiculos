@@ -65,4 +65,12 @@ public class VeiculoService {
 		return list;
 	}
 
+	public Veiculo get(long id) {
+		List<Veiculo> listHome = this.getListHome();
+		for (Veiculo veiculo : listHome) {
+			if(veiculo.getId() == id) return veiculo;
+		}
+		return null;
+	}
+
 }

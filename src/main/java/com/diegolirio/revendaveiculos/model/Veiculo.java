@@ -11,6 +11,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
+
 @Entity
 public class Veiculo {
 
@@ -31,6 +33,7 @@ public class Veiculo {
 	@ManyToOne
 	private Cor cor;
 	
+	@JsonBackReference
 	@ManyToMany
 	private List<Opcional> opcionais;
 	
@@ -41,8 +44,11 @@ public class Veiculo {
 	
 	private String urlFotoPrincipal;
 
+	@JsonBackReference
 	@OneToMany(mappedBy="veiculo", fetch=FetchType.LAZY)
 	private List<Foto> fotos;
+	
+	public Veiculo(){}
 
 	public Veiculo(long id, String renavam, String placa, double km, String chassi, Versao versao, 
 			       Cor cor, List<Opcional> opcionais, Date dataVenda, Loja loja, String urlFotoPrincipal, List<Foto> fotos) {

@@ -7,6 +7,7 @@ public class UsuarioBuilder {
 	private long id;
 	private String nome;
 	private String email;
+	private String senha;
 
 	public UsuarioBuilder comId(long id) {
 		this.id = id;
@@ -23,7 +24,14 @@ public class UsuarioBuilder {
 		return this;
 	}
 	
+	public UsuarioBuilder comSenha(String senha) {
+		this.senha = senha;
+		return this;
+	}
+	
 	public Usuario getInstance() {
-		return new Usuario(this.id, this.nome, this.email);
+		Usuario usuario = new Usuario(this.id, this.nome, this.email);
+		usuario.setSenha(senha);
+		return usuario ;
 	}
 }

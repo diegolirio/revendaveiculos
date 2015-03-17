@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
+
 @Entity
 public class Cor {
 	
@@ -15,6 +17,7 @@ public class Cor {
 	
 	private String descricao;
 	
+	@JsonBackReference
 	@OneToMany(mappedBy="cor")
 	private Set<Veiculo> veiculos;
 

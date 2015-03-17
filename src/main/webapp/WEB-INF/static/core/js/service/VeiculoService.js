@@ -11,11 +11,17 @@ app.factory('VeiculoService', ['$http', function($http) {
 		return $http.get('/revendaveiculos/veiculo/get/'+id);
 	};
 	
+	var _getList = function() {
+		return $http.get('/revendaveiculos/veiculo/get/list');
+	};
+	
 	return {
 		
 		getVeiculosHome : _getVeiculosHome,
 		
-		getPorId : _getPorId
+		getPorId : _getPorId,
+		
+		getList : _getList
 		
 	};
 	

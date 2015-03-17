@@ -54,6 +54,21 @@ public class VeiculoController {
 	}
 	
 	/**
+	 * Retorna Todos os veiculos
+	 * @return JSON
+	 */
+	@RequestMapping(value="/get/list", method=RequestMethod.GET, produces="application/json")
+	public ResponseEntity<String> getList() {
+		try {
+			List<Veiculo> veiculos = this.veiculoService.getList();
+			return new ResponseEntity<String>(new ObjectMapper().writeValueAsString(veiculos ), HttpStatus.OK);
+		} catch(Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	/**
 	 * Retorna o veiculo(JSON) por id
 	 * @param id
 	 * @return JSON

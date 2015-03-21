@@ -55,7 +55,7 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index() {
 		//return "redirect:/paginaInicial";
-		return "index";
+		return "index2";
 	}
 
 	@RequestMapping(value = "/paginaInicial", method = RequestMethod.GET)

@@ -35,12 +35,12 @@
     </head>
     <body class="skin-blue" ng-controller="UsuarioController as usuarioCtrl">
     
-		<jsp:include page="_menu.jsp"></jsp:include>
+<%-- 		<jsp:include page="_menu.jsp"></jsp:include> --%>
 		
         <div class="wrapper row-offcanvas row-offcanvas-left"> 
         
             <!-- Left side column. contains the logo and sidebar -->
-			<jsp:include page="_menu_left.jsp"></jsp:include>
+<%-- 			<jsp:include page="_menu_left.jsp"></jsp:include> --%>
 			 
 			<!-- Right side column. Contains the navbar and content of the page -->
 			<%-- 			<jsp:include page="${content_import}.jsp"></jsp:include>  --%>

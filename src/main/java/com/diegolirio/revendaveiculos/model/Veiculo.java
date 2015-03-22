@@ -45,7 +45,7 @@ public class Veiculo {
 	private String urlFotoPrincipal;
 
 	@JsonBackReference
-	@OneToMany(mappedBy="veiculo", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="veiculo", fetch=FetchType.EAGER)
 	private List<Foto> fotos;
 	
 	public Veiculo(){}

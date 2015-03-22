@@ -33,7 +33,7 @@ public class FotoBuilder {
 		return this;
 	}
 	
-	public Foto getInstance() {
+	public Foto build() {
 		return new Foto(id, uri, principal, veiculo);
 	}
 	

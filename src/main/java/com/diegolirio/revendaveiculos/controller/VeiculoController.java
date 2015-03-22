@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.diegolirio.revendaveiculos.model.Foto;
 import com.diegolirio.revendaveiculos.model.Veiculo;
 import com.diegolirio.revendaveiculos.service.VeiculoService;
 
@@ -77,6 +78,9 @@ public class VeiculoController {
 	public ResponseEntity<String> getPorId(@PathVariable("id") long id) {
 		try {
 			Veiculo veiculo = this.veiculoService.get(id);
+			for (Foto f : veiculo.getFotos()) {
+				System.out.println(f.getUri());
+			}
 			return new ResponseEntity<String>(new ObjectMapper().writeValueAsString(veiculo), HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();

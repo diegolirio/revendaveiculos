@@ -49,10 +49,14 @@ public class Veiculo {
 	private List<Foto> fotos;
 	
 	public Veiculo(){}
+	
+	public Veiculo(long id) {
+		this.id = id;
+	}
 
 	public Veiculo(long id, String renavam, String placa, double km, String chassi, Versao versao, 
 			       Cor cor, List<Opcional> opcionais, Date dataVenda, Loja loja, String urlFotoPrincipal, List<Foto> fotos) {
-		this.id = id;
+		this(id);
 		this.renavam = renavam;
 		this.placa = placa;
 		this.km = km;
@@ -65,7 +69,7 @@ public class Veiculo {
 		this.fotos = fotos;
 		this.urlFotoPrincipal = urlFotoPrincipal;
 	}		
-	
+
 	public String getUrlFotoPrincipal() {
 		return urlFotoPrincipal;
 	}

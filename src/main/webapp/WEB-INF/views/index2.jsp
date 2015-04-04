@@ -35,7 +35,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body class="skin-yellow sidebar-collapse fixed">  
+  <body class="skin-yellow fixed">  
     <div class="wrapper">
       
 	      <header class="main-header">
@@ -69,6 +69,8 @@
 		<!--------- Services ---------------->
 		<script src="${pageContext.request.contextPath}/static/core/js/service/UsuarioService.js"></script>
 		<script src="${pageContext.request.contextPath}/static/core/js/service/VeiculoService.js"></script>
+		<script src="${pageContext.request.contextPath}/static/core/js/service/FotoService.js"></script>
+		<script src="${pageContext.request.contextPath}/static/core/js/service/OpcionalService.js"></script>
 		<!--------- Controllers ------------->
   		<script src="${pageContext.request.contextPath}/static/core/js/controller/HomeController.js"></script>  		
 		<script src="${pageContext.request.contextPath}/static/core/js/controller/UsuarioController.js"></script>	

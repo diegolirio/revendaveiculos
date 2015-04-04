@@ -12,29 +12,15 @@
                 <div class="box-body">
                   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
-                      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                      <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
-                      <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+                      <li ng-repeat="f in vvCtrl.fotos" data-target="#carousel-example-generic" data-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}"></li>
                     </ol>
                     <div class="carousel-inner">
-                      <div ng-repeat="f in vvCtrl.veiculo.fotos" class="item active">
-                        <img src="{{f.uri}}" alt="First slide">
+                      <div ng-repeat="f in vvCtrl.fotos" class="item {{ $index == 0 ? 'active' : '' }}">
+                        <img src="{{f.uri}}" alt="First slide" class="img-responsive">
                         <div class="carousel-caption">
-                          First Slide
+                          foto {{ $index+1 }}
                         </div>
                       </div>
-<!--                       <div class="item"> -->
-<!--                         <img src="http://placehold.it/900x500/3c8dbc/ffffff&text=I+Love+Bootstrap" alt="Second slide"> -->
-<!--                         <div class="carousel-caption"> -->
-<!--                           Second Slide -->
-<!--                         </div> -->
-<!--                       </div> -->
-<!--                       <div class="item"> -->
-<!--                         <img src="http://placehold.it/900x500/f39c12/ffffff&text=I+Love+Bootstrap" alt="Third slide"> -->
-<!--                         <div class="carousel-caption"> -->
-<!--                           Third Slide -->
-<!--                         </div> -->
-<!--                       </div> -->
                     </div>
                     <a class="left carousel-control" href="?#carousel-example-generic" data-slide="prev">
                       <span class="fa fa-angle-left"></span>
@@ -44,11 +30,23 @@
                     </a>
                   </div>
                 </div><!-- /.box-body -->
-              </div><!-- /.box -->
+              </div><!-- /.box -->	
             </div><!-- /.col -->	
+            <div class="col-md-6">
+            	<h1 class="text-primary">{{vvCtrl.veiculo.versao.modelo.marca.descricao}} {{vvCtrl.veiculo.versao.modelo.descricao}} <small><small>( id. {{vvCtrl.veiculo.id}} )</small></small></h1>
+            	<ul>
+            		<li>{{vvCtrl.veiculo.versao.descricao}}</li>
+            		<li>{{vvCtrl.veiculo.versao.motor}}</li>
+            		<li>{{vvCtrl.veiculo.versao.anoFabricacao}}/{{vvCtrl.veiculo.versao.anoModelo}}</li>
+            		<li>{{vvCtrl.veiculo.km}} KM</li>
+            		<li>{{vvCtrl.veiculo.cor.descricao}}</li>
+            	</ul>
+            	
+            	<p ng-repeat="op in vvCtrl.opcionais">{{op.descricao}} - </p>
+            	
+            </div>
 	
      </div><!-- /.row -->	
-	
 
 </aside>
  

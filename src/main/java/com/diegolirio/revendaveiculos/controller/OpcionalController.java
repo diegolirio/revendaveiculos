@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.diegolirio.revendaveiculos.model.Opcional;
 import com.diegolirio.revendaveiculos.model.Veiculo;
+import com.diegolirio.revendaveiculos.model.VeiculoOpcional;
 import com.diegolirio.revendaveiculos.service.OpcionalService;
 
 @Controller
@@ -25,7 +25,7 @@ public class OpcionalController {
 	@RequestMapping(value="/get/lista/por/veiculo/{veiculoId}", method=RequestMethod.GET, produces="application/json")
 	public ResponseEntity<String> getListaPorVeiculo(@PathVariable("veiculoId") long veiculoId) {
 		try {
-			List<Opcional> opcionais = this.opcionalService.getListaPorVeiculo(new Veiculo(veiculoId));
+			List<VeiculoOpcional> opcionais = this.opcionalService.getListaPorVeiculo(new Veiculo(veiculoId));
 			return new ResponseEntity<String>(new ObjectMapper().writeValueAsString(opcionais), HttpStatus.OK);
 		} catch(Exception e) {
 			e.printStackTrace();

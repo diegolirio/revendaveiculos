@@ -77,7 +77,12 @@ public class VeiculoController {
 	public ResponseEntity<String> getPorId(@PathVariable("id") long id) {
 		try {
 			Veiculo veiculo = this.veiculoService.get(id);
-			return new ResponseEntity<String>(new ObjectMapper().writeValueAsString(veiculo), HttpStatus.OK);
+//			for (Opcional o : veiculo.getOpcionais()) {
+//				System.out.println(o.getDescricao());
+//			}
+			String veicJSON = new ObjectMapper().writeValueAsString(veiculo);
+			//System.out.println("====== " + veicJSON);
+			return new ResponseEntity<String>(veicJSON , HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);

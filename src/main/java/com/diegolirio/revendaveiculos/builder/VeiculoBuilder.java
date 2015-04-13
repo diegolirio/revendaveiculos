@@ -6,8 +6,8 @@ import java.util.List;
 import com.diegolirio.revendaveiculos.model.Cor;
 import com.diegolirio.revendaveiculos.model.Foto;
 import com.diegolirio.revendaveiculos.model.Loja;
-import com.diegolirio.revendaveiculos.model.Opcional;
 import com.diegolirio.revendaveiculos.model.Veiculo;
+import com.diegolirio.revendaveiculos.model.VeiculoOpcional;
 import com.diegolirio.revendaveiculos.model.Versao;
 
 public class VeiculoBuilder {
@@ -26,7 +26,7 @@ public class VeiculoBuilder {
 	
 	private Cor cor;
 	
-	private List<Opcional> opcionais;
+	private List<VeiculoOpcional> opcionais;
 	
 	private Date dataVenda;
 	
@@ -71,7 +71,7 @@ public class VeiculoBuilder {
 		return this;
 	}
 
-	public VeiculoBuilder comOpcionais(List<Opcional> opcionais) {
+	public VeiculoBuilder comOpcionais(List<VeiculoOpcional> opcionais) {
 		this.opcionais = opcionais;
 		return this;
 	}	

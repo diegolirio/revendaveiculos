@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.diegolirio.revendaveiculos.dao.OpcionalDao;
 import com.diegolirio.revendaveiculos.model.Opcional;
 import com.diegolirio.revendaveiculos.model.Veiculo;
+import com.diegolirio.revendaveiculos.model.VeiculoOpcional;
 
 @Service("opcionalService")
 public class OpcionalService {
@@ -15,8 +16,12 @@ public class OpcionalService {
 	@Autowired
 	private OpcionalDao opcionalDao;
 
-	public List<Opcional> getListaPorVeiculo(Veiculo veiculo) {
+	public List<VeiculoOpcional> getListaPorVeiculo(Veiculo veiculo) {
 		return this.opcionalDao.getListaPorVeiculo(veiculo);
+	}
+
+	public void save(Opcional opcional) {
+		this.opcionalDao.save(opcional);
 	}
 
 	

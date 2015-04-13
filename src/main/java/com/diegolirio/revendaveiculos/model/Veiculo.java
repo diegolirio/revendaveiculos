@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -34,8 +33,9 @@ public class Veiculo {
 	private Cor cor;
 	
 	@JsonBackReference
-	@ManyToMany
-	private List<Opcional> opcionais;
+	//@ManyToMany(fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="veiculo")
+	private List<VeiculoOpcional> opcionais;
 	
 	private Date dataVenda;
 	
@@ -55,7 +55,7 @@ public class Veiculo {
 	}
 
 	public Veiculo(long id, String renavam, String placa, double km, String chassi, Versao versao, 
-			       Cor cor, List<Opcional> opcionais, Date dataVenda, Loja loja, String urlFotoPrincipal, List<Foto> fotos) {
+			       Cor cor, List<VeiculoOpcional> opcionais, Date dataVenda, Loja loja, String urlFotoPrincipal, List<Foto> fotos) {
 		this(id);
 		this.renavam = renavam;
 		this.placa = placa;
@@ -134,11 +134,11 @@ public class Veiculo {
 		this.cor = cor;
 	}
 
-	public List<Opcional> getOpcionais() {
+	public List<VeiculoOpcional> getOpcionais() {
 		return opcionais;
 	}
 
-	public void setOpcionais(List<Opcional> opcionais) {
+	public void setOpcionais(List<VeiculoOpcional> opcionais) {
 		this.opcionais = opcionais;
 	}
 

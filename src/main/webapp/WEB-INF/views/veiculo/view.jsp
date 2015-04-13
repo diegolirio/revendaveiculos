@@ -42,7 +42,7 @@
             		<li>{{vvCtrl.veiculo.cor.descricao}}</li>
             	</ul>
             	
-            	<p ng-repeat="op in vvCtrl.opcionais">{{op.descricao}} - </p>
+            	<p ng-repeat="op in vvCtrl.opcionais">{{op.opcional.descricao}} - </p>
             	
             </div>
 	

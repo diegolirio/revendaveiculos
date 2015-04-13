@@ -13,6 +13,7 @@ import com.diegolirio.revendaveiculos.builder.FotoBuilder;
 import com.diegolirio.revendaveiculos.builder.LojaBuilder;
 import com.diegolirio.revendaveiculos.builder.MarcaBuilder;
 import com.diegolirio.revendaveiculos.builder.ModeloBuilder;
+import com.diegolirio.revendaveiculos.builder.OpcionalBuilder;
 import com.diegolirio.revendaveiculos.builder.UsuarioBuilder;
 import com.diegolirio.revendaveiculos.builder.VeiculoBuilder;
 import com.diegolirio.revendaveiculos.builder.VersaoBuilder;
@@ -21,15 +22,19 @@ import com.diegolirio.revendaveiculos.model.Foto;
 import com.diegolirio.revendaveiculos.model.Loja;
 import com.diegolirio.revendaveiculos.model.Marca;
 import com.diegolirio.revendaveiculos.model.Modelo;
+import com.diegolirio.revendaveiculos.model.Opcional;
 import com.diegolirio.revendaveiculos.model.Usuario;
 import com.diegolirio.revendaveiculos.model.Veiculo;
+import com.diegolirio.revendaveiculos.model.VeiculoOpcional;
 import com.diegolirio.revendaveiculos.model.Versao;
 import com.diegolirio.revendaveiculos.service.CorService;
 import com.diegolirio.revendaveiculos.service.FotoService;
 import com.diegolirio.revendaveiculos.service.LojaService;
 import com.diegolirio.revendaveiculos.service.MarcaService;
 import com.diegolirio.revendaveiculos.service.ModeloService;
+import com.diegolirio.revendaveiculos.service.OpcionalService;
 import com.diegolirio.revendaveiculos.service.UsuarioService;
+import com.diegolirio.revendaveiculos.service.VeiculoOpcionalService;
 import com.diegolirio.revendaveiculos.service.VeiculoService;
 import com.diegolirio.revendaveiculos.service.VersaoService;
 
@@ -59,6 +64,12 @@ public class HomeController {
 
 	@Autowired
 	private FotoService fotoService;
+
+	@Autowired
+	private OpcionalService opcionalService;
+
+	@Autowired
+	private VeiculoOpcionalService veiculoOpcionalService;
 	
 	// nao utilizado
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -126,7 +137,58 @@ public class HomeController {
 				.comFotos(fotos)
 				.getInstance();
 		this.veiculoService.save(veiculo);
+		
+		OpcionalBuilder ob = new OpcionalBuilder();
+		Opcional ar = ob.comDescricao("Ar Condicionado").build();
+		this.opcionalService.save(ar);
 
+		Opcional dh = ob.comDescricao("Direção Hidraúlica").build();
+		this.opcionalService.save(dh);
+
+		Opcional ve = ob.comDescricao("Vidro Elétrico").build();
+		this.opcionalService.save(ve);
+
+		Opcional te = ob.comDescricao("Trava Elétrica").build();
+		this.opcionalService.save(te);
+
+		Opcional air = ob.comDescricao("Air Bag").build();
+		this.opcionalService.save(air);
+
+		Opcional alarme = ob.comDescricao("Alarme").build();
+		this.opcionalService.save(alarme);
+		
+		
+		// TODO: retirar
+		VeiculoOpcional vo = new VeiculoOpcional();
+		vo.setOpcional(ar);
+		vo.setVeiculo(veiculo);
+		this.veiculoOpcionalService.save(vo);
+		// TODO: retirar
+		VeiculoOpcional vo2 = new VeiculoOpcional();
+		vo.setOpcional(dh);
+		vo.setVeiculo(veiculo);
+		this.veiculoOpcionalService.save(vo2);		
+		// TODO: retirar
+		VeiculoOpcional vo3 = new VeiculoOpcional();
+		vo.setOpcional(ve);
+		vo.setVeiculo(veiculo);
+		this.veiculoOpcionalService.save(vo3);
+		// TODO: retirar
+		VeiculoOpcional vo4 = new VeiculoOpcional();
+		vo.setOpcional(te);
+		vo.setVeiculo(veiculo);
+		this.veiculoOpcionalService.save(vo4);		
+		// TODO: retirar
+		VeiculoOpcional vo5 = new VeiculoOpcional();
+		vo.setOpcional(air);
+		vo.setVeiculo(veiculo);
+		this.veiculoOpcionalService.save(vo5);
+		// TODO: retirar
+		VeiculoOpcional vo6 = new VeiculoOpcional();
+		vo.setOpcional(alarme);
+		vo.setVeiculo(veiculo);
+		this.veiculoOpcionalService.save(vo6);
+		
 		FotoBuilder fb = new FotoBuilder();
 		Foto f1 = fb
 				.comPrincipal(true)

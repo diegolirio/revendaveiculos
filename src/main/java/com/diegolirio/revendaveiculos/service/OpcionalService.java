@@ -24,6 +24,10 @@ public class OpcionalService {
 		this.opcionalDao.save(opcional);
 	}
 
+	public Opcional getPorDescricao(String descricao) {
+		return this.opcionalDao.getPorDescricao(descricao);
+	}
+
 	
 	
 }

@@ -86,31 +86,18 @@ public class HomeController {
 	
 	@RequestMapping(value = "/criar_cadastro_inicial", method = RequestMethod.GET)
 	public String createInitCadastro() {
-		// se nao existe Ferrari 
-		Marca ferrari = new Marca();
-		ferrari.setDescricao("Ferrari");
-		ferrari.setUrlImage("/revendaveiculos/static/images/marcas/ferrari.png");
-		this.marcaService.save(ferrari); 
-
-		MarcaBuilder marcaBuilder = new MarcaBuilder();
-		Marca marca = marcaBuilder.comId(1l)
-								  .comDescricao("Pegeout")
-								  .comUrlImage("/revendaveiculos/static/images/veiculos/34266268_1.jpeg")
-								  .getInstance();
-		this.marcaService.save(marca);
-
-		CorBuilder cb = new CorBuilder();
-		Cor cor = cb.comDescricao("Branco").getInstance();
-		this.corService.save(cor);
 		
-		LojaBuilder lb = new LojaBuilder();
-		Loja loja = lb.comDescricao("Matriz").getInstance();
-		this.lojaService.save(loja);
+		// se nao existe Ferrari 
+		this.getMarcaOuCria("Ferrari");
+
+		Marca pegeout = this.getMarcaOuCria("Pegeout");
+		Cor cor = this.getCorOuCria("Branco");
+		Loja matriz = getLojaOuCria("Matriz");
 
 		ModeloBuilder mb = new ModeloBuilder();
 		Modelo modelo = mb
 				.comDescricao("308")
-				.comMarca(marca)
+				.comMarca(pegeout)
 				.getInstance();
 		this.modeloService.save(modelo);
 		
@@ -126,12 +113,11 @@ public class HomeController {
 		
 		List<Foto> fotos = new ArrayList<Foto>();
 		
-		
 		VeiculoBuilder vb = new VeiculoBuilder();
 		Veiculo veiculo = vb
 				.comCor(cor)
 				.comKm(0d)
-				.comLoja(loja)
+				.comLoja(matriz)
 				.comVersao(versao)
 				.comUrlFotoPrincipal("/revendaveiculos/static/images/veiculos/34266268_1.jpeg")
 				.comFotos(fotos)
@@ -165,28 +151,28 @@ public class HomeController {
 		this.veiculoOpcionalService.save(vo);
 		// TODO: retirar
 		VeiculoOpcional vo2 = new VeiculoOpcional();
-		vo.setOpcional(dh);
-		vo.setVeiculo(veiculo);
+		vo2.setOpcional(dh);
+		vo2.setVeiculo(veiculo);
 		this.veiculoOpcionalService.save(vo2);		
 		// TODO: retirar
 		VeiculoOpcional vo3 = new VeiculoOpcional();
-		vo.setOpcional(ve);
-		vo.setVeiculo(veiculo);
+		vo3.setOpcional(ve);
+		vo3.setVeiculo(veiculo);
 		this.veiculoOpcionalService.save(vo3);
 		// TODO: retirar
 		VeiculoOpcional vo4 = new VeiculoOpcional();
-		vo.setOpcional(te);
-		vo.setVeiculo(veiculo);
+		vo4.setOpcional(te);
+		vo4.setVeiculo(veiculo);
 		this.veiculoOpcionalService.save(vo4);		
 		// TODO: retirar
 		VeiculoOpcional vo5 = new VeiculoOpcional();
-		vo.setOpcional(air);
-		vo.setVeiculo(veiculo);
+		vo5.setOpcional(air);
+		vo5.setVeiculo(veiculo);
 		this.veiculoOpcionalService.save(vo5);
 		// TODO: retirar
 		VeiculoOpcional vo6 = new VeiculoOpcional();
-		vo.setOpcional(alarme);
-		vo.setVeiculo(veiculo);
+		vo6.setOpcional(alarme);
+		vo6.setVeiculo(veiculo);
 		this.veiculoOpcionalService.save(vo6);
 		
 		FotoBuilder fb = new FotoBuilder();
@@ -206,6 +192,8 @@ public class HomeController {
 		
 		this.fotoService.save(f2);
 		
+		this.criarGol2014();
+		
 		
 		UsuarioBuilder ub = new UsuarioBuilder();
 		Usuario usuario = ub
@@ -215,7 +203,159 @@ public class HomeController {
 				.getInstance();
 		this.usuarioService.save(usuario);
 		
-		return "index";
+		return "redirect:/";
+	}
+
+	private void criarGol2014() {
+		Marca volks = this.getMarcaOuCria("Volksvagem");
+		
+		Cor azul = this.getCorOuCria("Azul");
+		
+		Loja matriz = getLojaOuCria("Matriz");
+		
+		ModeloBuilder mb = new ModeloBuilder();
+		Modelo gol = mb
+				.comDescricao("Gol")
+				.comMarca(volks)
+				.getInstance();
+		this.modeloService.save(gol);
+		
+		VersaoBuilder versaoBuilder = new VersaoBuilder();
+		Versao versao = versaoBuilder
+				.comDescricao("TEC")
+				.comMotor(1.0f)
+				.comModelo(gol)
+				.comAnoFabricacao(2013)
+				.comAnoModelo(2014)
+				.comQuantidadePortas(4)
+				.getInstance();
+		this.versaoService.save(versao);
+		
+		List<Foto> fotos = new ArrayList<Foto>();
+		
+		
+		VeiculoBuilder vb = new VeiculoBuilder();
+		Veiculo veiculo = vb
+				.comCor(azul)
+				.comKm(46218.0d)
+				.comLoja(matriz)
+				.comVersao(versao)
+				.comUrlFotoPrincipal("/revendaveiculos/static/images/veiculos/gol_1_35316517_1.jpg")
+				.comFotos(fotos)
+				.getInstance();
+		this.veiculoService.save(veiculo);
+		
+		Opcional arCondicionado = getOpcionalOuCria("Ar Condicionado");
+		Opcional alarme = getOpcionalOuCria("Alarme");
+		
+		// TODO: retirar
+		VeiculoOpcional vo = new VeiculoOpcional();
+		vo.setOpcional(arCondicionado);
+		vo.setVeiculo(veiculo);
+		this.veiculoOpcionalService.save(vo);
+		// TODO: retirar
+		VeiculoOpcional vo6 = new VeiculoOpcional();
+		vo6.setOpcional(alarme);
+		vo6.setVeiculo(veiculo);
+		this.veiculoOpcionalService.save(vo6);
+		
+		FotoBuilder fb = new FotoBuilder();
+		Foto f1 = fb
+				.comPrincipal(true)
+				.comUri("/revendaveiculos/static/images/veiculos/gol_1_35316517_1.jpg")
+				.comVeiculo(veiculo)
+				.build();
+		this.fotoService.save(f1);
+
+		Foto f2 = fb
+				.comPrincipal(false)
+				.comUri("/revendaveiculos/static/images/veiculos/gol_2_35316519_1.jpg")
+				.comVeiculo(veiculo)
+				.build();
+		this.fotoService.save(f2);
+
+		Foto f3 = fb
+				.comPrincipal(false)
+				.comUri("/revendaveiculos/static/images/veiculos/gol_3_35316520_1.jpg")
+				.comVeiculo(veiculo)
+				.build();
+		this.fotoService.save(f3);
+
+		Foto f4 = fb
+				.comPrincipal(false)
+				.comUri("/revendaveiculos/static/images/veiculos/gol_4_35316521_1.jpg")
+				.comVeiculo(veiculo)
+				.build();
+		this.fotoService.save(f4);
+
+		Foto f5 = fb
+				.comPrincipal(false)
+				.comUri("/revendaveiculos/static/images/veiculos/gol_5_35316522_1.jpg")
+				.comVeiculo(veiculo)
+				.build();
+		this.fotoService.save(f5);
+		
+		Foto f6 = fb
+				.comPrincipal(false)
+				.comUri("/revendaveiculos/static/images/veiculos/gol_6_35316524_1.jpg")
+				.comVeiculo(veiculo)
+				.build();
+		this.fotoService.save(f6);
+		
+		Foto f7 = fb
+				.comPrincipal(false)
+				.comUri("/revendaveiculos/static/images/veiculos/gol_7_35316525_1.jpg")
+				.comVeiculo(veiculo)
+				.build();
+		this.fotoService.save(f7);
+		
+		Foto f8 = fb
+				.comPrincipal(false)
+				.comUri("/revendaveiculos/static/images/veiculos/gol_8_35316526_1.jpg")
+				.comVeiculo(veiculo)
+				.build();
+		this.fotoService.save(f8);
+		
+	}
+
+	private Cor getCorOuCria(String descricao) {
+		Cor cor = this.corService.getPorDescricao(descricao);
+		CorBuilder cb = new CorBuilder();
+		cor = cb.comDescricao(descricao).getInstance();
+		this.corService.save(cor);
+		return cor;
+	}
+
+	private Marca getMarcaOuCria(String descricao) {
+		Marca marca = this.marcaService.getPorDescricao(descricao);
+		if(marca == null) {
+			MarcaBuilder volksBuilder = new MarcaBuilder();
+			marca = volksBuilder.comDescricao(descricao)
+			    				.comUrlImage("/revendaveiculos/static/images/veiculos/34266268_1.jpeg")
+								.build();
+			this.marcaService.save(marca);
+		}
+		return marca;
+	}
+
+	private Opcional getOpcionalOuCria(String descricao) {
+		Opcional opcional = this.opcionalService.getPorDescricao(descricao);
+		if(opcional == null) {
+			OpcionalBuilder ob = new OpcionalBuilder();
+			opcional = ob.comDescricao(descricao).build();
+			this.opcionalService.save(opcional);
+		}
+		return opcional;
+	}
+
+	private Loja getLojaOuCria(String descricao) {
+		Loja loja = this.lojaService.getPorDescricao(descricao);
+		if(loja == null) {
+			LojaBuilder lb = new LojaBuilder();
+			loja = lb.comDescricao(descricao).getInstance();
+			this.lojaService.save(loja);
+		}
+		return loja;
 	}
 	
 	

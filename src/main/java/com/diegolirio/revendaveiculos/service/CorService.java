@@ -15,5 +15,9 @@ public class CorService {
 	public void save(Cor cor) {
 		this.corDao.save(cor);
 	}
+
+	public Cor getPorDescricao(String descricao) {
+		return this.corDao.getPorDescricao(descricao);
+	}
 	
 }

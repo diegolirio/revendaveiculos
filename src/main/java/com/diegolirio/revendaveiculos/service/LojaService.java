@@ -15,5 +15,9 @@ public class LojaService {
 	public void save(Loja loja) {
 		this.lojaDao.save(loja);
 	}
+
+	public Loja getPorDescricao(String descricao) {
+		return this.lojaDao.getPorDescricao(descricao);
+	}
 	
 }

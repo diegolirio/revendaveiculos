@@ -32,5 +32,9 @@ public class MarcaService {
 	public void delete(long id) {
 		this.marcaDao.delete(Marca.class, id);		
 	}
+
+	public Marca getPorDescricao(String descricao) {
+		return this.marcaDao.getPorDescricao(descricao);
+	}
 	
 }

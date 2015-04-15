@@ -15,7 +15,9 @@ public class VersaoBuilder {
 
 	private int anoFabricacao;
 
-	private int anoModelo;	
+	private int anoModelo;
+
+	private int quantidadePortas;	
 	
 	public VersaoBuilder comId(long id) {
 		this.id = id;
@@ -47,9 +49,15 @@ public class VersaoBuilder {
 		this.anoModelo = anoModelo;
 		return this;
 	}		
+
+	public VersaoBuilder comQuantidadePortas(int quantidadePortas) {
+		this.quantidadePortas = quantidadePortas;
+		return this;
+	}
 	
 	public Versao getInstance() {
-		return new Versao(id, descricao, motor, modelo, anoFabricacao, anoModelo);
+		return new Versao(id, descricao, motor, modelo, anoFabricacao, anoModelo, quantidadePortas);
 	}
+
 	
 }

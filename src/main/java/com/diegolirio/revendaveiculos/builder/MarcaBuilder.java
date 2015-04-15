@@ -25,8 +25,8 @@ public class MarcaBuilder {
 		return this;
 	}
 	
-	public Marca getInstance() {
+	public Marca build() {
 		return new Marca(id, descricao, urlImage);
 	}
-	
+
 }

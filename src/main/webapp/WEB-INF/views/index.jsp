@@ -33,7 +33,7 @@
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body class="skin-blue" ng-controller="UsuarioController as usuarioCtrl">
+    <body class="skin-blue sidebar-collapse fixed" ng-controller="UsuarioController as usuarioCtrl">
     
 <%-- 		<jsp:include page="_menu.jsp"></jsp:include> --%>
 		

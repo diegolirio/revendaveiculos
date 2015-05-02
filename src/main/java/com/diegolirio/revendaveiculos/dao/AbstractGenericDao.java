@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class AbstractGenericDao<T> {
 
 	@PersistenceContext(unitName="mysql_r")
-	private EntityManager manager;
+	protected EntityManager manager;
 	
 	public T get(Class<T> typeClass, long id) {
 		return this.manager.find(typeClass, id);

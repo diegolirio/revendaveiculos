@@ -1,3 +1,5 @@
+<!-- Pagina de Cadastro -->
+
 <div ng-init="getMarca()">  
 	
 	<h3 class="text-info" >Cadastro de Marcas</h3>

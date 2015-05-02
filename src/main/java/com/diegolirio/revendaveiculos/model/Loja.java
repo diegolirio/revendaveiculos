@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
+
 @Entity 
 public class Loja {
 
@@ -29,8 +31,16 @@ public class Loja {
 	
 	private double longitude;
 	
+	@JsonBackReference
 	@OneToMany(mappedBy="loja")
 	private List<Veiculo> veiculos;
+
+	public Loja() {}
+	
+	public Loja(long id, String descricao) {
+		this.id = id;
+		this.descricao = descricao;
+	}
 
 	public long getId() {
 		return id;

@@ -5,7 +5,9 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
+import org.codehaus.jackson.annotate.JsonBackReference;
 
 @Entity
 public class Opcional {
@@ -15,8 +17,17 @@ public class Opcional {
 	
 	private String descricao;
 	
-	@ManyToMany(mappedBy="opcionais")
-	private List<Veiculo> veiculos;
+	@JsonBackReference
+	//@ManyToMany(mappedBy="opcionais")
+	@OneToMany(mappedBy="opcional")
+	private List<VeiculoOpcional> veiculos;
+
+	public Opcional(){}
+	
+	public Opcional(long id, String descricao) {
+		this.id = id;
+		this.descricao = descricao;
+	}
 
 	public long getId() {
 		return id;
@@ -34,11 +45,11 @@ public class Opcional {
 		this.descricao = descricao;
 	}
 
-	public List<Veiculo> getVeiculos() {
+	public List<VeiculoOpcional> getVeiculos() {
 		return veiculos;
 	}
 
-	public void setVeiculos(List<Veiculo> veiculos) {
+	public void setVeiculos(List<VeiculoOpcional> veiculos) {
 		this.veiculos = veiculos;
 	}
 	

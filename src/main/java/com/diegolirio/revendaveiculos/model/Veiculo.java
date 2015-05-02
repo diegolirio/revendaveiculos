@@ -4,11 +4,13 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import org.codehaus.jackson.annotate.JsonBackReference;
 
 @Entity
 public class Veiculo {
@@ -30,20 +32,51 @@ public class Veiculo {
 	@ManyToOne
 	private Cor cor;
 	
-	private int anoFabricacao;
-	
-	private int anoModelo;
-	
-	@ManyToMany
-	private List<Opcional> opcionais;
+	@JsonBackReference
+	//@ManyToMany(fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="veiculo")
+	private List<VeiculoOpcional> opcionais;
 	
 	private Date dataVenda;
 	
 	@ManyToOne
 	private Loja loja;
+	
+	private String urlFotoPrincipal;
 
-	@OneToMany(mappedBy="veiculo")
+	@JsonBackReference
+	@OneToMany(mappedBy="veiculo", fetch=FetchType.EAGER)
 	private List<Foto> fotos;
+	
+	public Veiculo(){}
+	
+	public Veiculo(long id) {
+		this.id = id;
+	}
+
+	public Veiculo(long id, String renavam, String placa, double km, String chassi, Versao versao, 
+			       Cor cor, List<VeiculoOpcional> opcionais, Date dataVenda, Loja loja, String urlFotoPrincipal, List<Foto> fotos) {
+		this(id);
+		this.renavam = renavam;
+		this.placa = placa;
+		this.km = km;
+		this.chassi = chassi;
+		this.versao = versao;
+		this.cor = cor;
+		this.opcionais = opcionais;
+		this.dataVenda = dataVenda;
+		this.loja = loja;
+		this.fotos = fotos;
+		this.urlFotoPrincipal = urlFotoPrincipal;
+	}		
+
+	public String getUrlFotoPrincipal() {
+		return urlFotoPrincipal;
+	}
+
+	public void setUrlFotoPrincipal(String urlFotoPrincipal) {
+		this.urlFotoPrincipal = urlFotoPrincipal;
+	}
 
 	public long getId() {
 		return id;
@@ -101,11 +134,11 @@ public class Veiculo {
 		this.cor = cor;
 	}
 
-	public List<Opcional> getOpcionais() {
+	public List<VeiculoOpcional> getOpcionais() {
 		return opcionais;
 	}
 
-	public void setOpcionais(List<Opcional> opcionais) {
+	public void setOpcionais(List<VeiculoOpcional> opcionais) {
 		this.opcionais = opcionais;
 	}
 
@@ -123,22 +156,6 @@ public class Veiculo {
 
 	public void setLoja(Loja loja) {
 		this.loja = loja;
-	}
-
-	public int getAnoFabricacao() {
-		return anoFabricacao;
-	}
-
-	public void setAnoFabricacao(int anoFabricacao) {
-		this.anoFabricacao = anoFabricacao;
-	}
-
-	public int getAnoModelo() {
-		return anoModelo;
-	}
-
-	public void setAnoModelo(int anoModelo) {
-		this.anoModelo = anoModelo;
 	}
 
 	public List<Foto> getFotos() {

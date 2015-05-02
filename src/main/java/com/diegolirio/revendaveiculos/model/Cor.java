@@ -7,17 +7,28 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
+
 @Entity
 public class Cor {
-
+	
 	@Id @GeneratedValue
 	private long id;
 	
 	private String descricao;
 	
+	@JsonBackReference
 	@OneToMany(mappedBy="cor")
 	private Set<Veiculo> veiculos;
 
+	public Cor() {}
+	
+	public Cor(long id, String descricao, Set<Veiculo> veiculos) {
+		this.id = id;
+		this.descricao = descricao;
+		this.veiculos = veiculos;
+	}		
+	
 	public long getId() {
 		return id;
 	}

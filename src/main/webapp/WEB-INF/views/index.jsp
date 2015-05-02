@@ -1,118 +1,115 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html ng-app="app">
-	<head>
-		<meta charset="utf-8">
-		<title>Home</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/static/bootswatch-simplex/css/bootstrap.css" media="screen">
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/static/bootswatch-simplex/css/bootswatch.min.css">
-		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!--[if lt IE 9]>
-		<script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
-		<script src="../bower_components/respond/dest/respond.min.js"></script>
-		<![endif]-->
-		<script>
-			var _gaq = _gaq || [];
-			_gaq.push([ '_setAccount', 'UA-23019901-1' ]);
-			_gaq.push([ '_setDomainName', "bootswatch.com" ]);
-			_gaq.push([ '_setAllowLinker', true ]); 
-			_gaq.push([ '_trackPageview' ]);
-			(function() {
-				var ga = document.createElement('script');
-				ga.type = 'text/javascript';
-				ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www')
-							+ '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0];
-				s.parentNode.insertBefore(ga, s);
-			})();
+    <head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
+        <title>Vote no Livro</title>
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        <!-- bootstrap 3.0.2 -->
+        <link href="${pageContext.request.contextPath}/static/adminlte-master/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- font Awesome -->
+        <link href="${pageContext.request.contextPath}/static/adminlte-master/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <!-- Ionicons -->
+        <link href="${pageContext.request.contextPath}/static/adminlte-master/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+        <!-- Morris chart -->
+        <link href="${pageContext.request.contextPath}/static/adminlte-master/css/morris/morris.css" rel="stylesheet" type="text/css" />
+        <!-- jvectormap -->
+        <link href="${pageContext.request.contextPath}/static/adminlte-master/css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+        <!-- Date Picker -->
+        <link href="${pageContext.request.contextPath}/static/adminlte-master/css/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
+        <!-- Daterange picker -->
+        <link href="${pageContext.request.contextPath}/static/adminlte-master/css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+        <!-- bootstrap wysihtml5 - text editor -->
+        <link href="${pageContext.request.contextPath}/static/adminlte-master/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+        <!-- Theme style -->
+        <link href="${pageContext.request.contextPath}/static/adminlte-master/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="skin-blue sidebar-collapse fixed" ng-controller="UsuarioController as usuarioCtrl">
+    
+<%-- 		<jsp:include page="_menu.jsp"></jsp:include> --%>
+		
+        <div class="wrapper row-offcanvas row-offcanvas-left"> 
+        
+            <!-- Left side column. contains the logo and sidebar -->
+<%-- 			<jsp:include page="_menu_left.jsp"></jsp:include> --%>
+			 
+			<!-- Right side column. Contains the navbar and content of the page -->
+			<%-- 			<jsp:include page="${content_import}.jsp"></jsp:include>  --%>
+			
+			<div ng-view></div>
+			 
+        </div><!-- ./wrapper --> 
+
+<!-- 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular.min.js"></script> -->
+<%-- 				<script src="${pageContext.request.contextPath}/static/core/js/app.js"></script> --%>
+<%-- 		<script src="${pageContext.request.contextPath}/static/core/js/votingController.js"></script> --%>
+
+		
+		<!-- ########################## AngularJS ########################################################################### -->
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular-route.js"></script>
+		<!--------- rotas e config da app angular ------------------->
+		<script src="${pageContext.request.contextPath}/static/core/js/app.js"></script> 
+		<!--------- Services ---------------->
+		<script src="${pageContext.request.contextPath}/static/core/js/service/UsuarioService.js"></script>
+		<script src="${pageContext.request.contextPath}/static/core/js/service/VeiculoService.js"></script>
+		<!--------- Controllers ------------->
+  		<script src="${pageContext.request.contextPath}/static/core/js/controller/HomeController.js"></script>  		
+		<script src="${pageContext.request.contextPath}/static/core/js/controller/UsuarioController.js"></script>	
+  		<script src="${pageContext.request.contextPath}/static/core/js/controller/UsuarioLoginController.js"></script>  		
+  		<script src="${pageContext.request.contextPath}/static/core/js/controller/VeiculoViewController.js"></script>
+  		<!-- ########################## End AngularJS ####################################################################### -->
+  		
+        <!-- jQuery 2.0.2 -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <!-- jQuery UI 1.10.3 -->
+        <script src="${pageContext.request.contextPath}/static/adminlte-master/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
+        <!-- Bootstrap -->
+        <script src="${pageContext.request.contextPath}/static/adminlte-master/js/bootstrap.min.js" type="text/javascript"></script>
+        <!-- Morris.js charts -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+        <script src="${pageContext.request.contextPath}/static/adminlte-master/js/plugins/morris/morris.min.js" type="text/javascript"></script>
+        <!-- Sparkline -->
+        <script src="${pageContext.request.contextPath}/static/adminlte-master/js/plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
+        <!-- jvectormap -->
+        <script src="${pageContext.request.contextPath}/static/adminlte-master/js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath}/static/adminlte-master/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
+        <!-- jQuery Knob Chart -->
+        <script src="${pageContext.request.contextPath}/static/adminlte-master/js/plugins/jqueryKnob/jquery.knob.js" type="text/javascript"></script>
+        <!-- daterangepicker -->
+        <script src="${pageContext.request.contextPath}/static/adminlte-master/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+        <!-- datepicker -->
+        <script src="${pageContext.request.contextPath}/static/adminlte-master/js/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
+        <!-- Bootstrap WYSIHTML5 -->
+        <script src="${pageContext.request.contextPath}/static/adminlte-master/js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
+        <!-- iCheck -->
+        <script src="${pageContext.request.contextPath}/static/adminlte-master/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+
+        <!-- AdminLTE App -->
+        <script src="${pageContext.request.contextPath}/static/adminlte-master/js/AdminLTE/app.js" type="text/javascript"></script>
+
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <script src="${pageContext.request.contextPath}/static/adminlte-master/js/AdminLTE/dashboard.js" type="text/javascript"></script>
+
+        <!-- AdminLTE for demo purposes -->
+        <script src="${pageContext.request.contextPath}/static/adminlte-master/js/AdminLTE/demo.js" type="text/javascript"></script>
+        
+        <script type="text/javascript">
+			function show_window(url, alt, larg) {
+				w = window.open(url, 
+								'', 
+								'height=550, width=750, top=150, left=250, scrollbars=no, resizable=no');								
+			}  
 		</script>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular.min.js"></script>
-		<script src="${pageContext.request.contextPath}/static/core/js/app.js"></script>
-		<script src="${pageContext.request.contextPath}/static/core/js/marcaController.js"></script>
-	</head>
-<body>
-	<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
-		<div class="container">
-			<div class="navbar-header">
-				<a href="index.html" class="navbar-brand">Veiculos</a>
-				<button class="navbar-toggle" type="button" data-toggle="collapse"
-					data-target="#navbar-main">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-			</div>
-			<div class="navbar-collapse collapse" id="navbar-main">
-				<ul class="nav navbar-nav">
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#" id="themes">Themes <span
-							class="caret"></span></a>
-						<ul class="dropdown-menu" aria-labelledby="themes">
-							<li><a href="../default/">Default</a></li>
-							<li class="divider"></li>
-							<li><a href="../cerulean/">Cerulean</a></li>
-							<li><a href="../cosmo/">Cosmo</a></li>
-						</ul></li>
-					<li><a href="../help/">Help</a></li>
-					<li><a href="http://news.bootswatch.com">Blog</a></li>
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#" id="download">Download <span
-							class="caret"></span></a>
-						<ul class="dropdown-menu" aria-labelledby="download">
-							<li><a href="./bootstrap.min.css">bootstrap.min.css</a></li>
-							<li><a href="./bootstrap.css">bootstrap.css</a></li>
-							<li class="divider"></li>
-							<li><a href="./variables.less">variables.less</a></li>
-							<li><a href="./bootswatch.less">bootswatch.less</a></li>
-							<li class="divider"></li>
-							<li><a href="./_variables.scss">_variables.scss</a></li>
-							<li><a href="./_bootswatch.scss">_bootswatch.scss</a></li>
-						</ul></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#" id="themes">Cadastros <span
-							class="caret"></span></a>
-						<ul class="dropdown-menu" aria-labelledby="themes">
-							<li><a href="/">Veiculos</a></li>
-							<li class="divider"></li>
-							<li><a
-								href="${pageContext.request.contextPath}/#/marca/get/list">Marcas</a></li>
-						</ul></li>
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#" id="themes"> <img src="#" /> <span
-							class="caret"></span>
-					</a>
-						<ul class="dropdown-menu" aria-labelledby="themes">
-							<li><a href="#">Perfil</a></li>
-							<li class="divider"></li>
-							<li><a href="#">Sair</a></li>
-						</ul></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<br/>
-	<div class="container">
-		<div class="page-header" id="banner">
-			<div class="row">
-				<div class="col-lg-8 col-md-7 col-sm-6">
-					<h1>Tecno Veiculos</h1>
-					<p class="lead">Veiculos novos e seminovos</p>
-				</div>
-				<div class="col-lg-4 col-md-5 col-sm-6">
-					<div class="sponsor">
-						<!-- <a href="http://gridgum.com/themes/category/bootstrap-themes/?utm_source=Bootswatch&utm_medium=250ad&utm_campaign=Bootswatch%20Campaign" target="_blank" onclick="_gaq.push(['_trackEvent', 'banner', 'click', 'gridgum']);"><img src="http://bootswatch.com/assets/img/gridgum.png" alt="Gridgum" onload="_gaq.push(['_trackEvent', 'banner', 'impression', 'gridgum']);"></a> -->
-						<img src="${pageContext.request.contextPath}/static/core/img/159.GIF" ng-show="showLoaderFlag"/>
-					</div>
-				</div>
-			</div>
-		</div> 
-		<div ng-view></div>
-	</div>
-	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-	<script src="${pageContext.request.contextPath}/static/bootswatch-simplex/js/bootstrap.min.js"></script>
-	<script	src="${pageContext.request.contextPath}/static/bootswatch-simplex/js/bootswatch.js"></script>
-</body>
+
+    </body>
 </html>

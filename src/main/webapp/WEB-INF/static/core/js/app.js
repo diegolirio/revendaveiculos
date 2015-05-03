@@ -7,7 +7,9 @@ app.config(['$routeProvider', function($routeProvider) {
 		// usuario
 		.when('/login', { templateUrl: '/revendaveiculos/usuario/page/login' })
 		// veiculo
-		.when('/veiculo/:id', { templateUrl: '/revendaveiculos/veiculo/page/view' } );
+		.when('/veiculo/:id', { templateUrl: '/revendaveiculos/veiculo/page/view' } )
+		// marca
+		.when('/cadastro/marcas', { templateUrl: '/revendaveiculos/marca/get/list' } );
 	
 }]);
 

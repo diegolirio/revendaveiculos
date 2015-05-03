@@ -212,13 +212,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.5.1</version>
 				<configuration>
-<<<<<<< HEAD
-					<source>1.6</source>
-					<target>1.6</target>
-=======
 					<source>${java-version}</source>
 					<target>${java-version}</target>
->>>>>>> 2319b9ab49b1c27f1a060ee6f1a1c78951c6b51d
 					<compilerArgument>-Xlint:all</compilerArgument>
 					<showWarnings>true</showWarnings>
 					<showDeprecation>true</showDeprecation>

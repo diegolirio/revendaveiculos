@@ -1,10 +1,10 @@
 <!-- Pagina de Cadastro -->
 
-<div ng-init="getMarca()">  
+<div ng-controller="MarcaFormController as marcaFormCtrl">  
 	
 	<h3 class="text-info" >Cadastro de Marcas</h3>
 	 
-	 <form ng-submit="save()" class="form-horizontal" >
+	 <form ng-submit="marcaFormCtrl.save()" class="form-horizontal" >
 	 
 		<div class="control-group">
 			<label class="control-label">ID:</label>

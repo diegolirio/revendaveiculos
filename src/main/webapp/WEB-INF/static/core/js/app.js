@@ -9,7 +9,8 @@ app.config(['$routeProvider', function($routeProvider) {
 		// veiculo
 		.when('/veiculo/:id', { templateUrl: '/revendaveiculos/veiculo/page/view' } )
 		// marca
-		.when('/cadastro/marcas', { templateUrl: '/revendaveiculos/marca/get/list' } );
+		.when('/cadastro/marcas', { templateUrl: '/revendaveiculos/marca/get/list' } )
+		.when('/marca/:id',       { templateUrl: '/revendaveiculos/marca/form' } );
 	
 }]);
 

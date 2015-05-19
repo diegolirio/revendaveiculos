@@ -84,7 +84,7 @@ public class HomeController {
 		return "home";
 	}			
 	
-	@RequestMapping(value = "/criar_cadastro_inicial", method = RequestMethod.GET)
+	@RequestMapping(value = "/criar_cadastro", method = RequestMethod.GET)
 	public String createInitCadastro() {
 		
 		// se nao existe Ferrari 

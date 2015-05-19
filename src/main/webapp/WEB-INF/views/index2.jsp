@@ -56,7 +56,7 @@
 		  <div ng-view></div>
 		  <!-- /.content-wrapper -->
 	      
-		  <jsp:include page="footer.jsp"></jsp:include>
+<%-- 		  <jsp:include page="footer.jsp"></jsp:include> --%> 
     
     </div><!-- ./wrapper -->
     
@@ -71,6 +71,7 @@
 		<script src="${pageContext.request.contextPath}/static/core/js/service/VeiculoService.js"></script>
 		<script src="${pageContext.request.contextPath}/static/core/js/service/FotoService.js"></script>
 		<script src="${pageContext.request.contextPath}/static/core/js/service/OpcionalService.js"></script>
+		<script src="${pageContext.request.contextPath}/static/core/js/service/MarcaService.js"></script>
 		<!--------- Controllers -------------> 
   		<script src="${pageContext.request.contextPath}/static/core/js/controller/HomeController.js"></script>  		
 		<script src="${pageContext.request.contextPath}/static/core/js/controller/UsuarioController.js"></script>	

@@ -12,13 +12,15 @@
 	  			<th width="50px;">Id</th>
 	  			<th width="100px;"></th>
 	  			<th>Descrição</th>
+	  			<th>#</th>
 	  		<tr>
 	  	</thead>
 	  	<tbody>
 	  		<tr ng-repeat="m in mlCtrl.marcas">
 	  			<td>{{m.id}}</td>
 	  			<td><img src="{{m.urlImage}}" class="img-responsive img-circle" width="40"/></td>
-	  			<td>{{m.descricao}}</td>
+	  			<td><a href="#/marca/edit/{{m.id}}">{{m.descricao}}</a></td>
+	  			<td><a href="#/marca/edit/{{m.id}}">Alterar</a></td>
 	  		</tr>
 	  	</tbody>
 	</table>	

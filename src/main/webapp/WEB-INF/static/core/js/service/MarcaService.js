@@ -7,9 +7,15 @@ app.factory('MarcaService', ['$http', function($http) {
 		return $http.get('/revendaveiculos/marca/get/list/json'); 
 	};
 	
+	var _get = function(id) {
+		return $http.get('/revendaveiculos/marca/'+id+'/json');
+	};
+	
 	return {
 		
-		getAllList : _getAllList
+		getAllList : _getAllList,
+		
+		get : _get
 		
 	};
 	

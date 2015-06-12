@@ -1,7 +1,9 @@
 <aside ng-controller="HomeController as homeCtrl" class="right-side" >
 
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-6">
       <div class="box box-solid">
 
         <div class="box-body">
@@ -41,6 +43,9 @@
         </div><!-- /.box-body -->
       </div><!-- /.box -->
     </div><!-- /.col -->
+    <div class="col-md-3">
+    	<h1>Marcas...</h1>
+    </div>    
   </div>
 	
 	<h2>Veiculos <small>( {{homeCtrl.veiculos.length}} )</small></h2>

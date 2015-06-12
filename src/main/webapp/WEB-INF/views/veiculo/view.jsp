@@ -4,6 +4,8 @@
 	
 	<div class="row">
 	
+		  <div class="col-md-2">
+		  </div>
 		  <div class="col-md-4">
               <div class="box box-solid">
                 <div class="box-header with-border">
@@ -32,7 +34,7 @@
                 </div><!-- /.box-body -->
               </div><!-- /.box -->	
             </div><!-- /.col -->	
-            <div class="col-md-8">
+            <div class="col-md-6">
             	<h1 class="text-primary">{{vvCtrl.veiculo.versao.modelo.marca.descricao}} {{vvCtrl.veiculo.versao.modelo.descricao}} <small><small>( id. {{vvCtrl.veiculo.id}} )</small></small></h1>
             	<ul>
             		<li>{{vvCtrl.veiculo.versao.descricao}}</li>

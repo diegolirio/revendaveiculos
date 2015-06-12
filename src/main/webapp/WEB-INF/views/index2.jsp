@@ -78,6 +78,7 @@
   		<script src="${pageContext.request.contextPath}/static/core/js/controller/UsuarioLoginController.js"></script>  		
   		<script src="${pageContext.request.contextPath}/static/core/js/controller/VeiculoViewController.js"></script>
   		<script src="${pageContext.request.contextPath}/static/core/js/controller/MarcaListController.js"></script>
+  		<script src="${pageContext.request.contextPath}/static/core/js/controller/MarcaFormController.js"></script>
   		<!-- ########################## End AngularJS ####################################################################### -->
 
     <!-- jQuery 2.1.3 -->

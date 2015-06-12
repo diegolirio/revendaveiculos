@@ -72,6 +72,7 @@
 		<script src="${pageContext.request.contextPath}/static/core/js/service/FotoService.js"></script>
 		<script src="${pageContext.request.contextPath}/static/core/js/service/OpcionalService.js"></script>
 		<script src="${pageContext.request.contextPath}/static/core/js/service/MarcaService.js"></script>
+		<script src="${pageContext.request.contextPath}/static/core/js/service/ModeloService.js"></script>
 		<!--------- Controllers -------------> 
   		<script src="${pageContext.request.contextPath}/static/core/js/controller/HomeController.js"></script>  		
 		<script src="${pageContext.request.contextPath}/static/core/js/controller/UsuarioController.js"></script>	
@@ -79,6 +80,7 @@
   		<script src="${pageContext.request.contextPath}/static/core/js/controller/VeiculoViewController.js"></script>
   		<script src="${pageContext.request.contextPath}/static/core/js/controller/MarcaListController.js"></script>
   		<script src="${pageContext.request.contextPath}/static/core/js/controller/MarcaFormController.js"></script>
+  		<script src="${pageContext.request.contextPath}/static/core/js/controller/ModeloListController.js"></script>
   		<!-- ########################## End AngularJS ####################################################################### -->
 
     <!-- jQuery 2.1.3 -->

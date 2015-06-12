@@ -10,7 +10,9 @@ app.config(['$routeProvider', function($routeProvider) {
 		.when('/veiculo/:id', { templateUrl: '/revendaveiculos/veiculo/page/view' } )
 		// marca
 		.when('/cadastro/marcas', { templateUrl: '/revendaveiculos/marca/get/list' } )
-		.when('/marca/edit/:id',       { templateUrl: '/revendaveiculos/marca/form' } );
+		.when('/marca/edit/:id',       { templateUrl: '/revendaveiculos/marca/form' } )
+		.when('/cadastro/modelos', { templateUrl: '/revendaveiculos/modelo/list/page' } )
+		;
 	
 }]);
 

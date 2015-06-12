@@ -1,5 +1,7 @@
 package com.diegolirio.revendaveiculos.service;
  
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,10 @@ public class ModeloService {
 
 	public void save(Modelo modelo) {
 		this.modeloDao.save(modelo);
+	}
+
+	public List<Modelo> getAllList() {
+		return this.modeloDao.getList(Modelo.class);
 	}
 	
 }

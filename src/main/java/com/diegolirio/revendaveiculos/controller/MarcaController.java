@@ -77,7 +77,7 @@ public class MarcaController {
 		return "marca/form";
 	}
 	
-	@RequestMapping(value="/save/{id}/json", method=RequestMethod.POST, produces="application/json", consumes="application/json")
+	@RequestMapping(value="/save/json", method=RequestMethod.POST, produces="application/json", consumes="application/json")
 	public ResponseEntity<String> save(@RequestBody Marca marca) {
 		try {
 			this.marcaService.save(marca);
@@ -89,7 +89,7 @@ public class MarcaController {
 		}
 	}
 	
-	@RequestMapping(value="/delete/{id}", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/delete/{id}/json", method=RequestMethod.POST, produces="application/json")
 	public ResponseEntity<String> delete(@PathVariable long id) {
 		try {
 			this.marcaService.delete(id);

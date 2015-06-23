@@ -1,9 +1,12 @@
 package com.diegolirio.revendaveiculos.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Modelo {
@@ -16,8 +19,11 @@ public class Modelo {
 	@ManyToOne
 	private Marca marca;
 	
-//	@ManyToOne
-//	private Tipo tipo;
+	@ManyToOne
+	private Tipo tipo;
+	
+	@OneToMany(mappedBy="modelo")
+	private Set<Versao> versoes;
 
 	public Modelo() {}
 	
@@ -51,13 +57,21 @@ public class Modelo {
 		this.marca = marca;
 	}
 
-//	public Tipo getTipo() {
-//		return tipo;
-//	}
-//
-//	public void setTipo(Tipo tipo) {
-//		this.tipo = tipo;
-//	}
+	public Tipo getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(Tipo tipo) {
+		this.tipo = tipo;
+	}
+
+	public Set<Versao> getVersoes() {
+		return versoes;
+	}
+
+	public void setVersoes(Set<Versao> versoes) {
+		this.versoes = versoes;
+	}
 	
 	
 	

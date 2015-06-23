@@ -1,8 +1,11 @@
 package com.diegolirio.revendaveiculos.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Tipo {
@@ -12,8 +15,8 @@ public class Tipo {
 	
 	private String descricao;
 	
-	//@OneToMany(mappedBy="tipo")
-	//private Set<Modelo> modelos;
+	@OneToMany(mappedBy="tipo")
+	private Set<Modelo> modelos;
 
 	public long getId() {
 		return id;
@@ -31,13 +34,13 @@ public class Tipo {
 		this.descricao = descricao;
 	}
 
-//	public Set<Modelo> getModelos() {
-//		return modelos;
-//	}
-//
-//	public void setModelos(Set<Modelo> modelos) {
-//		this.modelos = modelos;
-//	}
+	public Set<Modelo> getModelos() {
+		return modelos;
+	}
+
+	public void setModelos(Set<Modelo> modelos) {
+		this.modelos = modelos;
+	}
 	
 	
 	

@@ -3,7 +3,6 @@ package com.diegolirio.revendaveiculos.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.diegolirio.revendaveiculos.builder.CorBuilder;
 import com.diegolirio.revendaveiculos.builder.FotoBuilder;
 import com.diegolirio.revendaveiculos.builder.LojaBuilder;
-import com.diegolirio.revendaveiculos.builder.MarcaBuilder;
 import com.diegolirio.revendaveiculos.builder.ModeloBuilder;
 import com.diegolirio.revendaveiculos.builder.OpcionalBuilder;
 import com.diegolirio.revendaveiculos.builder.UsuarioBuilder;
@@ -30,7 +28,6 @@ import com.diegolirio.revendaveiculos.model.Versao;
 import com.diegolirio.revendaveiculos.service.CorService;
 import com.diegolirio.revendaveiculos.service.FotoService;
 import com.diegolirio.revendaveiculos.service.LojaService;
-import com.diegolirio.revendaveiculos.service.MarcaService;
 import com.diegolirio.revendaveiculos.service.ModeloService;
 import com.diegolirio.revendaveiculos.service.OpcionalService;
 import com.diegolirio.revendaveiculos.service.UsuarioService;
@@ -41,34 +38,34 @@ import com.diegolirio.revendaveiculos.service.VersaoService;
 @Controller
 public class HomeController {
 	
-	@Autowired
-	private MarcaService marcaService;
+	//@Autowired
+	//private MarcaService marcaService;
 
-	@Autowired
+	//@Autowired
 	private CorService corService;
 
-	@Autowired
+	//@Autowired
 	private LojaService lojaService;
 
-	@Autowired
+	//@Autowired
 	private ModeloService modeloService;
 
-	@Autowired
+	//@Autowired
 	private VersaoService versaoService;
 
-	@Autowired
+	//@Autowired
 	private VeiculoService veiculoService;
 
-	@Autowired
+	//@Autowired
 	private UsuarioService usuarioService;
 
-	@Autowired
+	//@Autowired
 	private FotoService fotoService;
 
-	@Autowired
+	//@Autowired
 	private OpcionalService opcionalService;
 
-	@Autowired
+	//@Autowired
 	private VeiculoOpcionalService veiculoOpcionalService;
 	
 	// nao utilizado
@@ -327,15 +324,16 @@ public class HomeController {
 	}
 
 	private Marca getMarcaOuCria(String descricao) {
-		Marca marca = this.marcaService.getPorDescricao(descricao);
-		if(marca == null) {
-			MarcaBuilder volksBuilder = new MarcaBuilder();
-			marca = volksBuilder.comDescricao(descricao)
-			    				.comUrlImage("/revendaveiculos/static/images/veiculos/34266268_1.jpeg")
-								.build();
-			this.marcaService.save(marca);
-		}
-		return marca;
+		//Marca marca = this.marcaService.getPorDescricao(descricao);
+//		if(marca == null) {
+//			MarcaBuilder volksBuilder = new MarcaBuilder();
+//			marca = volksBuilder.comDescricao(descricao)
+//			    				.comUrlImage("/revendaveiculos/static/images/veiculos/34266268_1.jpeg")
+//								.build();
+//			this.marcaService.save(marca);
+//		}
+//		return marca;
+		return null;
 	}
 
 	private Opcional getOpcionalOuCria(String descricao) {

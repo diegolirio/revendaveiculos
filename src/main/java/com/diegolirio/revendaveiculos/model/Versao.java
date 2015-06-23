@@ -1,9 +1,12 @@
 package com.diegolirio.revendaveiculos.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Versao {
@@ -17,13 +20,15 @@ public class Versao {
 	
 	private int anoFabricacao;
 	
-	private int anoModelo;
-		
+	private int anoModelo;		
 	
 	@ManyToOne
 	private Modelo modelo;
 
 	private int quantidadePortas;
+	
+	@OneToMany(mappedBy="versao")
+	private Set<Veiculo> veiculos;
 
 	public Versao() {}
 	
@@ -95,6 +100,14 @@ public class Versao {
 
 	public void setQuantidadePortas(int quantidadePortas) {
 		this.quantidadePortas = quantidadePortas;
+	}
+
+	public Set<Veiculo> getVeiculos() {
+		return veiculos;
+	}
+
+	public void setVeiculos(Set<Veiculo> veiculos) {
+		this.veiculos = veiculos;
 	}
 	
 	

@@ -8,10 +8,12 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-@Repository
+import com.diegolirio.revendaveiculos.model.Model;
+
+@Repository("dao")
 public class AbstractGenericDao<T> {
 
-	@PersistenceContext(unitName="mysql_r")
+	@PersistenceContext(name="mysql_q")
 	protected EntityManager manager;
 	
 	public T get(Class<T> typeClass, long id) {
@@ -22,10 +24,14 @@ public class AbstractGenericDao<T> {
 		String hql = "Select t from " + typeClass.getName() + " t";
 		return this.manager.createQuery(hql, typeClass).getResultList();
 	}	
-	 
+	
 	@Transactional 
 	public void save(T object) {
-		this.manager.persist(object);
+		Model model = (Model) object;
+		if(model.getId() <= 0)
+			this.manager.persist(object);
+		else 
+			this.manager.merge(object);
 	}
  
 	@Transactional
@@ -34,11 +40,9 @@ public class AbstractGenericDao<T> {
 		this.manager.remove(t); 
 	}
 	
-	@Transactional
-	public void update(T object) {
-		this.manager.merge(object);
-	}
-	
-	
+//	@Transactional
+//	public void update(T object) {
+//		this.manager.merge(object);
+//	}	
 	
 }

@@ -23,27 +23,32 @@ public class MarcaController {
 
 	@Autowired
 	private MarcaService marcaService;
+	
+	/*
+	 * Rest Full
+	 */
+	
+	@RequestMapping(value = "/get/list/json", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<String> getList() {
+		try {
+			List<Marca> list = this.marcaService.getList(Marca.class);
+			return new ResponseEntity<String>(new ObjectMapper().writeValueAsString(list), HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}	
+	
 
 	/*
 	 * Page List
 	 */
-	@RequestMapping(value = "/get/list", method = RequestMethod.GET)
-	public String pageList() {
-		return "marca/list";
-	}
+//	@RequestMapping(value = "/get/list", method = RequestMethod.GET)
+//	public String pageList() {
+//		return "marca/list";
+//	}
 
-	@RequestMapping(value = "/get/list/json", method = RequestMethod.GET, produces = "application/json")
-	public ResponseEntity<String> getList() {
-		try {
-			List<Marca> list = this.marcaService.getList();
-			return new ResponseEntity<String>(
-					new ObjectMapper().writeValueAsString(list), HttpStatus.OK);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return new ResponseEntity<String>(e.getMessage(),
-					HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
+
 
 	/* fim Page List */
 
@@ -58,7 +63,7 @@ public class MarcaController {
 	@RequestMapping(value = "/{id}/json", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<String> get(@PathVariable("id") long id) {
 		try {
-			Marca marca = this.marcaService.get(id);
+			Marca marca = this.marcaService.get(Marca.class, id);
 			return new ResponseEntity<String>(
 					new ObjectMapper().writeValueAsString(marca), HttpStatus.OK);
 		} catch (Exception e) {
@@ -92,7 +97,7 @@ public class MarcaController {
 	@RequestMapping(value="/delete/{id}/json", method=RequestMethod.POST, produces="application/json")
 	public ResponseEntity<String> delete(@PathVariable long id) {
 		try {
-			this.marcaService.delete(id);
+			this.marcaService.delete(Marca.class, id);
 			return new ResponseEntity<String>(HttpStatus.OK);
 		} catch(Exception e) {
 			return new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);

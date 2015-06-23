@@ -1,8 +1,11 @@
 package com.diegolirio.revendaveiculos.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Marca {
@@ -14,8 +17,8 @@ public class Marca {
 
 	private String urlImage;
 
-//	@OneToMany(mappedBy="marca")
-//	private Set<Modelo> modelos;
+	@OneToMany(mappedBy="marca")
+	private Set<Modelo> modelos;
 	
 	public Marca() {}
 	
@@ -51,13 +54,13 @@ public class Marca {
 
 
 
-//	public Set<Modelo> getModelos() {
-//		return modelos;
-//	}
-//
-//	public void setModelos(Set<Modelo> modelos) {
-//		this.modelos = modelos;
-//	}
+	public Set<Modelo> getModelos() {
+		return modelos;
+	}
+
+	public void setModelos(Set<Modelo> modelos) {
+		this.modelos = modelos;
+	}
 	
 	@Override
 	public String toString() {

@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import org.codehaus.jackson.annotate.JsonBackReference;
 
 @Entity
-public class Veiculo {
+public class Veiculo extends Model {
 
 	@Id @GeneratedValue
 	private long id;

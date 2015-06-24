@@ -8,7 +8,7 @@ import com.diegolirio.revendaveiculos.dao.UsuarioDao;
 import com.diegolirio.revendaveiculos.model.Usuario;
 
 @Service("usuarioService")
-public class UsuarioService {
+public class UsuarioService extends AbstractGenericService<Usuario> {
 
 	@Autowired
 	private UsuarioDao usuarioDao;
@@ -27,8 +27,4 @@ public class UsuarioService {
 		return usuario;
 	}
 
-	public void save(Usuario usuario) {
-		this.usuarioDao.save(usuario);
-	}
-	
 }

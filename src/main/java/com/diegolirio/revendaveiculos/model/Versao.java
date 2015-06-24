@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 import org.codehaus.jackson.annotate.JsonBackReference;
 
 @Entity
-public class Versao {
+public class Versao extends Model {
 
 	@Id @GeneratedValue
 	private long id;
@@ -29,9 +29,15 @@ public class Versao {
 
 	private int quantidadePortas;
 	
+	@ManyToOne
+	private Cambio cambio;
+	
 	@JsonBackReference
 	@OneToMany(mappedBy="versao")
 	private Set<Veiculo> veiculos;
+
+	@ManyToOne
+	private Combustivel combustivel;
 
 	public Versao() {}
 	
@@ -112,6 +118,24 @@ public class Versao {
 	public void setVeiculos(Set<Veiculo> veiculos) {
 		this.veiculos = veiculos;
 	}
+
+	public Cambio getCambio() {
+		return cambio;
+	}
+
+	public void setCambio(Cambio cambio) {
+		this.cambio = cambio;
+	}
+
+	public Combustivel getCombustivel() {
+		return combustivel;
+	}
+
+	public void setCombustivel(Combustivel combustivel) {
+		this.combustivel = combustivel;
+		
+	}
+	
 	
 	
 }

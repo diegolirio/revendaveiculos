@@ -1,5 +1,7 @@
 package com.diegolirio.revendaveiculos.builder;
 
+import com.diegolirio.revendaveiculos.model.Cambio;
+import com.diegolirio.revendaveiculos.model.Combustivel;
 import com.diegolirio.revendaveiculos.model.Modelo;
 import com.diegolirio.revendaveiculos.model.Versao;
 
@@ -17,7 +19,11 @@ public class VersaoBuilder {
 
 	private int anoModelo;
 
-	private int quantidadePortas;	
+	private int quantidadePortas;
+
+	private Cambio cambio;
+
+	private Combustivel combustivel;	
 	
 	public VersaoBuilder comId(long id) {
 		this.id = id;
@@ -55,9 +61,23 @@ public class VersaoBuilder {
 		return this;
 	}
 	
-	public Versao getInstance() {
-		return new Versao(id, descricao, motor, modelo, anoFabricacao, anoModelo, quantidadePortas);
+	public VersaoBuilder comCambio(Cambio cambio) {
+		this.cambio = cambio;
+		return this;
 	}
+
+	public VersaoBuilder comCombustivel(Combustivel combustivel) {
+		this.combustivel = combustivel;
+		return this;
+	}
+	
+	public Versao build() {
+		Versao versao = new Versao(id, descricao, motor, modelo, anoFabricacao, anoModelo, quantidadePortas);
+		versao.setCambio(cambio);
+		versao.setCombustivel(combustivel);
+		return versao;
+	}
+
 
 	
 }

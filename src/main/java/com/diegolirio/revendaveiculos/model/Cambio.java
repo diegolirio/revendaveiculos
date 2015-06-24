@@ -1,16 +1,25 @@
 package com.diegolirio.revendaveiculos.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import org.codehaus.jackson.annotate.JsonBackReference;
 
 @Entity
-public class Cambio {
+public class Cambio extends Model {
 
 	@Id @GeneratedValue
 	private long id;
 	
 	private String descricao;
+	
+	@JsonBackReference
+	@OneToMany(mappedBy="cambio")
+	private List<Versao> versoes; 
 	
 	public long getId() {
 		return id;
@@ -28,4 +37,14 @@ public class Cambio {
 		this.descricao = descricao;
 	}
 
+	public List<Versao> getVersoes() {
+		return versoes;
+	}
+
+	public void setVersoes(List<Versao> versoes) {
+		this.versoes = versoes;
+	}
+
+	
+	
 }

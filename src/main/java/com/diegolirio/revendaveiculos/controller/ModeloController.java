@@ -35,7 +35,7 @@ public class ModeloController {
 	@RequestMapping(value="/get/list/all", method=RequestMethod.GET, produces="application/json")
 	public ResponseEntity<String> getList() {
 		try {
-			List<Modelo> list = this.modeloService.getAllList();
+			List<Modelo> list = this.modeloService.getList(Modelo.class);
 			return new ResponseEntity<String>(new ObjectMapper().writeValueAsString(list), HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();

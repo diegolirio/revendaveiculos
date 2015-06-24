@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Pessoa {
+public class Pessoa extends Model {
 
 	@Id @GeneratedValue
 	private long id;

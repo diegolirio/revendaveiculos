@@ -7,14 +7,10 @@ import com.diegolirio.revendaveiculos.dao.LojaDao;
 import com.diegolirio.revendaveiculos.model.Loja;
 
 @Service("lojaService")
-public class LojaService {
+public class LojaService extends AbstractGenericService<Loja> {
 
 	@Autowired
 	private LojaDao lojaDao;
-
-	public void save(Loja loja) {
-		this.lojaDao.save(loja);
-	}
 
 	public Loja getPorDescricao(String descricao) {
 		return this.lojaDao.getPorDescricao(descricao);

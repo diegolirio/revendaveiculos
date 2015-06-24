@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Ficha {
+public class Ficha extends Model {
 
 	@Id @GeneratedValue
 	private long id;

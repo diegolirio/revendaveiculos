@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 import org.codehaus.jackson.annotate.JsonBackReference;
 
 @Entity
-public class Opcional {
+public class Opcional extends Model {
 
 	@Id @GeneratedValue
 	private long id;

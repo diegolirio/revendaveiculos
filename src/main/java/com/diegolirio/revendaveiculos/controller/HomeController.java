@@ -3,6 +3,7 @@ package com.diegolirio.revendaveiculos.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,11 +11,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.diegolirio.revendaveiculos.builder.CorBuilder;
 import com.diegolirio.revendaveiculos.builder.FotoBuilder;
 import com.diegolirio.revendaveiculos.builder.LojaBuilder;
+import com.diegolirio.revendaveiculos.builder.MarcaBuilder;
 import com.diegolirio.revendaveiculos.builder.ModeloBuilder;
 import com.diegolirio.revendaveiculos.builder.OpcionalBuilder;
 import com.diegolirio.revendaveiculos.builder.UsuarioBuilder;
 import com.diegolirio.revendaveiculos.builder.VeiculoBuilder;
 import com.diegolirio.revendaveiculos.builder.VersaoBuilder;
+import com.diegolirio.revendaveiculos.model.Cambio;
+import com.diegolirio.revendaveiculos.model.Combustivel;
 import com.diegolirio.revendaveiculos.model.Cor;
 import com.diegolirio.revendaveiculos.model.Foto;
 import com.diegolirio.revendaveiculos.model.Loja;
@@ -25,9 +29,12 @@ import com.diegolirio.revendaveiculos.model.Usuario;
 import com.diegolirio.revendaveiculos.model.Veiculo;
 import com.diegolirio.revendaveiculos.model.VeiculoOpcional;
 import com.diegolirio.revendaveiculos.model.Versao;
+import com.diegolirio.revendaveiculos.service.CambioService;
+import com.diegolirio.revendaveiculos.service.CombustivelService;
 import com.diegolirio.revendaveiculos.service.CorService;
 import com.diegolirio.revendaveiculos.service.FotoService;
 import com.diegolirio.revendaveiculos.service.LojaService;
+import com.diegolirio.revendaveiculos.service.MarcaService;
 import com.diegolirio.revendaveiculos.service.ModeloService;
 import com.diegolirio.revendaveiculos.service.OpcionalService;
 import com.diegolirio.revendaveiculos.service.UsuarioService;
@@ -38,35 +45,41 @@ import com.diegolirio.revendaveiculos.service.VersaoService;
 @Controller
 public class HomeController {
 	
-	//@Autowired
-	//private MarcaService marcaService;
+	@Autowired
+	private MarcaService marcaService;
 
-	//@Autowired
+	@Autowired
 	private CorService corService;
 
-	//@Autowired
+	@Autowired
 	private LojaService lojaService;
 
-	//@Autowired
+	@Autowired
 	private ModeloService modeloService;
 
-	//@Autowired
+	@Autowired
 	private VersaoService versaoService;
 
-	//@Autowired
+	@Autowired
 	private VeiculoService veiculoService;
 
-	//@Autowired
+	@Autowired
 	private UsuarioService usuarioService;
 
-	//@Autowired
+	@Autowired
 	private FotoService fotoService;
 
-	//@Autowired
+	@Autowired
 	private OpcionalService opcionalService;
 
-	//@Autowired
+	@Autowired
 	private VeiculoOpcionalService veiculoOpcionalService;
+
+	@Autowired
+	private CambioService cambioService;
+
+	@Autowired
+	private CombustivelService combustivelService;
 	
 	// nao utilizado
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -84,112 +97,117 @@ public class HomeController {
 	@RequestMapping(value = "/criar_base", method = RequestMethod.GET)
 	public String createInitCadastro() {
 		
-		// se nao existe Ferrari 
-		this.getMarcaOuCria("Ferrari");
-
-		Marca pegeout = this.getMarcaOuCria("Pegeout");
-		Cor cor = this.getCorOuCria("Branco");
-		Loja matriz = getLojaOuCria("Matriz");
-
-		ModeloBuilder mb = new ModeloBuilder();
-		Modelo modelo = mb
-				.comDescricao("308")
-				.comMarca(pegeout)
-				.getInstance();
-		this.modeloService.save(modelo);
+//		// se nao existe Ferrari 
+//		this.getMarcaOuCria("Ferrari");
+//
+//		Marca pegeout = this.getMarcaOuCria("Pegeout");
+//		Cor cor = this.getCorOuCria("Branco");
+//		Loja matriz = getLojaOuCria("Matriz");
+//
+//		ModeloBuilder mb = new ModeloBuilder();
+//		Modelo modelo = mb
+//				.comDescricao("308")
+//				.comMarca(pegeout)
+//				.getInstance();
+//		this.modeloService.save(modelo);
+//
+//		Combustivel flex = this.getCombustivelOuCria("Flex");
+//		
+//		VersaoBuilder versaoBuilder = new VersaoBuilder();
+//		Versao versao = versaoBuilder
+//				.comDescricao("Quiksilver")
+//				.comMotor(1.8f)
+//				.comModelo(modelo)
+//				.comAnoFabricacao(2015)
+//				.comAnoModelo(2015)
+//				.comCombustivel(flex)
+//				.build();
+//		this.versaoService.save(versao);
+//		
+//		List<Foto> fotos = new ArrayList<Foto>();
+//		
+//		VeiculoBuilder vb = new VeiculoBuilder();
+//		Veiculo veiculo = vb
+//				.comCor(cor)
+//				.comKm(0d)
+//				.comLoja(matriz)
+//				.comVersao(versao)
+//				.comUrlFotoPrincipal("/revendaveiculos/static/images/veiculos/34266268_1.jpeg")
+//				.comFotos(fotos)
+//				.getInstance();
+//		this.veiculoService.save(veiculo);
+//		
+//		OpcionalBuilder ob = new OpcionalBuilder();
+//		Opcional ar = ob.comDescricao("Ar Condicionado").build();
+//		this.opcionalService.save(ar);
+//
+//		Opcional dh = ob.comDescricao("Direção Hidraulica").build();
+//		this.opcionalService.save(dh);
+//
+//		Opcional ve = ob.comDescricao("Vidro Elétrico").build();
+//		this.opcionalService.save(ve);
+//
+//		Opcional te = ob.comDescricao("Trava Elétrica").build();
+//		this.opcionalService.save(te);
+//
+//		Opcional air = ob.comDescricao("Air Bag").build();
+//		this.opcionalService.save(air);
+//
+//		Opcional alarme = ob.comDescricao("Alarme").build();
+//		this.opcionalService.save(alarme);
+//		
+//		
+//		// TODO: retirar
+//		VeiculoOpcional vo = new VeiculoOpcional();
+//		vo.setOpcional(ar);
+//		vo.setVeiculo(veiculo);
+//		this.veiculoOpcionalService.save(vo);
+//		// TODO: retirar
+//		VeiculoOpcional vo2 = new VeiculoOpcional();
+//		vo2.setOpcional(dh);
+//		vo2.setVeiculo(veiculo);
+//		this.veiculoOpcionalService.save(vo2);		
+//		// TODO: retirar
+//		VeiculoOpcional vo3 = new VeiculoOpcional();
+//		vo3.setOpcional(ve);
+//		vo3.setVeiculo(veiculo);
+//		this.veiculoOpcionalService.save(vo3);
+//		// TODO: retirar
+//		VeiculoOpcional vo4 = new VeiculoOpcional();
+//		vo4.setOpcional(te);
+//		vo4.setVeiculo(veiculo);
+//		this.veiculoOpcionalService.save(vo4);		
+//		// TODO: retirar
+//		VeiculoOpcional vo5 = new VeiculoOpcional();
+//		vo5.setOpcional(air);
+//		vo5.setVeiculo(veiculo);
+//		this.veiculoOpcionalService.save(vo5);
+//		// TODO: retirar
+//		VeiculoOpcional vo6 = new VeiculoOpcional();
+//		vo6.setOpcional(alarme);
+//		vo6.setVeiculo(veiculo);
+//		this.veiculoOpcionalService.save(vo6);
+//		
+//		FotoBuilder fb = new FotoBuilder();
+//		Foto f1 = fb
+//				.comPrincipal(true)
+//				.comUri("/revendaveiculos/static/images/veiculos/34266268_1.jpeg")
+//				.comVeiculo(veiculo)
+//				.build();
+//		
+//		this.fotoService.save(f1);
+//
+//		Foto f2 = fb
+//				.comPrincipal(false)
+//				.comUri("/revendaveiculos/static/images/veiculos/34266269_1.jpeg")
+//				.comVeiculo(veiculo)
+//				.build();
+//		
+//		this.fotoService.save(f2);
+//		
+//		this.criarGol2014();
 		
-		VersaoBuilder versaoBuilder = new VersaoBuilder();
-		Versao versao = versaoBuilder
-				.comDescricao("Quiksilver")
-				.comMotor(1.8f)
-				.comModelo(modelo)
-				.comAnoFabricacao(2015)
-				.comAnoModelo(2015)
-				.getInstance();
-		this.versaoService.save(versao);
-		
-		List<Foto> fotos = new ArrayList<Foto>();
-		
-		VeiculoBuilder vb = new VeiculoBuilder();
-		Veiculo veiculo = vb
-				.comCor(cor)
-				.comKm(0d)
-				.comLoja(matriz)
-				.comVersao(versao)
-				.comUrlFotoPrincipal("/revendaveiculos/static/images/veiculos/34266268_1.jpeg")
-				.comFotos(fotos)
-				.getInstance();
-		this.veiculoService.save(veiculo);
-		
-		OpcionalBuilder ob = new OpcionalBuilder();
-		Opcional ar = ob.comDescricao("Ar Condicionado").build();
-		this.opcionalService.save(ar);
-
-		Opcional dh = ob.comDescricao("Direção Hidraulica").build();
-		this.opcionalService.save(dh);
-
-		Opcional ve = ob.comDescricao("Vidro Elétrico").build();
-		this.opcionalService.save(ve);
-
-		Opcional te = ob.comDescricao("Trava Elétrica").build();
-		this.opcionalService.save(te);
-
-		Opcional air = ob.comDescricao("Air Bag").build();
-		this.opcionalService.save(air);
-
-		Opcional alarme = ob.comDescricao("Alarme").build();
-		this.opcionalService.save(alarme);
-		
-		
-		// TODO: retirar
-		VeiculoOpcional vo = new VeiculoOpcional();
-		vo.setOpcional(ar);
-		vo.setVeiculo(veiculo);
-		this.veiculoOpcionalService.save(vo);
-		// TODO: retirar
-		VeiculoOpcional vo2 = new VeiculoOpcional();
-		vo2.setOpcional(dh);
-		vo2.setVeiculo(veiculo);
-		this.veiculoOpcionalService.save(vo2);		
-		// TODO: retirar
-		VeiculoOpcional vo3 = new VeiculoOpcional();
-		vo3.setOpcional(ve);
-		vo3.setVeiculo(veiculo);
-		this.veiculoOpcionalService.save(vo3);
-		// TODO: retirar
-		VeiculoOpcional vo4 = new VeiculoOpcional();
-		vo4.setOpcional(te);
-		vo4.setVeiculo(veiculo);
-		this.veiculoOpcionalService.save(vo4);		
-		// TODO: retirar
-		VeiculoOpcional vo5 = new VeiculoOpcional();
-		vo5.setOpcional(air);
-		vo5.setVeiculo(veiculo);
-		this.veiculoOpcionalService.save(vo5);
-		// TODO: retirar
-		VeiculoOpcional vo6 = new VeiculoOpcional();
-		vo6.setOpcional(alarme);
-		vo6.setVeiculo(veiculo);
-		this.veiculoOpcionalService.save(vo6);
-		
-		FotoBuilder fb = new FotoBuilder();
-		Foto f1 = fb
-				.comPrincipal(true)
-				.comUri("/revendaveiculos/static/images/veiculos/34266268_1.jpeg")
-				.comVeiculo(veiculo)
-				.build();
-		
-		this.fotoService.save(f1);
-
-		Foto f2 = fb
-				.comPrincipal(false)
-				.comUri("/revendaveiculos/static/images/veiculos/34266269_1.jpeg")
-				.comVeiculo(veiculo)
-				.build();
-		
-		this.fotoService.save(f2);
-		
-		this.criarGol2014();
+		this.criarEcoSport2014();
 		
 		
 		UsuarioBuilder ub = new UsuarioBuilder();
@@ -203,6 +221,65 @@ public class HomeController {
 		return "redirect:/";
 	}
 
+	private void criarEcoSport2014() {
+		Marca ford = this.getMarcaOuCria("Ford");
+		
+		ModeloBuilder mb = new ModeloBuilder();
+		Modelo ecosport = mb
+				.comDescricao("Ecosport")
+				.comMarca(ford)
+				.getInstance();
+		this.modeloService.save(ecosport);		
+		
+		VersaoBuilder versaoBuilder = new VersaoBuilder();
+		
+		Cambio manual = this.getCambioOuCria("Manual");
+		
+		Combustivel flex = this.getCombustivelOuCria("Flex");
+		
+		Versao versao = versaoBuilder
+				.comDescricao("Freestyle 16V")
+				.comMotor(1.6f)
+				.comModelo(ecosport)
+				.comAnoFabricacao(2014)
+				.comAnoModelo(2014)
+				.comQuantidadePortas(4)
+				.comCambio(manual)
+				.comCombustivel(flex)
+				.build();
+		this.versaoService.save(versao);		
+		
+		Cor vermelho = this.getCorOuCria("Vermelho");
+		Loja matriz = getLojaOuCria("Matriz");
+		
+		List<Foto> fotos = new ArrayList<Foto>();		
+		
+		VeiculoBuilder vb = new VeiculoBuilder();
+		Veiculo veiculo = vb
+				.comCor(vermelho)
+				.comKm(10500.0d)
+				.comLoja(matriz)
+				.comVersao(versao)
+				.comUrlFotoPrincipal("https://lh5.googleusercontent.com/qBT4ygHgQpHzhyezlcEdVXvNZP8ArBVUIyi7fD_5Uy7Q5wgbZmDvPcEGkBN9Pcu8TmCOHKEv=w1576-h655")
+				.comFotos(fotos)
+				.getInstance();
+		this.veiculoService.save(veiculo);		
+		
+		Opcional arCondicionado = getOpcionalOuCria("Ar Condicionado");
+		Opcional alarme = getOpcionalOuCria("Alarme");
+		
+		// TODO: retirar
+		VeiculoOpcional vo = new VeiculoOpcional();
+		vo.setOpcional(arCondicionado);
+		vo.setVeiculo(veiculo);
+		this.veiculoOpcionalService.save(vo);
+		// TODO: retirar
+		VeiculoOpcional vo6 = new VeiculoOpcional();
+		vo6.setOpcional(alarme);
+		vo6.setVeiculo(veiculo);
+		this.veiculoOpcionalService.save(vo6);		
+	}
+	
 	private void criarGol2014() {
 		Marca volks = this.getMarcaOuCria("Volksvagem");
 		
@@ -225,7 +302,7 @@ public class HomeController {
 				.comAnoFabricacao(2013)
 				.comAnoModelo(2014)
 				.comQuantidadePortas(4)
-				.getInstance();
+				.build();
 		this.versaoService.save(versao);
 		
 		List<Foto> fotos = new ArrayList<Foto>();
@@ -314,7 +391,7 @@ public class HomeController {
 		this.fotoService.save(f8);
 		
 	}
-
+	
 	private Cor getCorOuCria(String descricao) {
 		Cor cor = this.corService.getPorDescricao(descricao);
 		CorBuilder cb = new CorBuilder();
@@ -324,16 +401,15 @@ public class HomeController {
 	}
 
 	private Marca getMarcaOuCria(String descricao) {
-		//Marca marca = this.marcaService.getPorDescricao(descricao);
-//		if(marca == null) {
-//			MarcaBuilder volksBuilder = new MarcaBuilder();
-//			marca = volksBuilder.comDescricao(descricao)
-//			    				.comUrlImage("/revendaveiculos/static/images/veiculos/34266268_1.jpeg")
-//								.build();
-//			this.marcaService.save(marca);
-//		}
-//		return marca;
-		return null;
+		Marca marca = this.marcaService.getPorDescricao(descricao);
+		if(marca == null) {
+			MarcaBuilder volksBuilder = new MarcaBuilder();
+			marca = volksBuilder.comDescricao(descricao)
+			    				.comUrlImage("/revendaveiculos/static/images/veiculos/34266268_1.jpeg")
+								.build();
+			this.marcaService.save(marca);
+		}
+		return marca;
 	}
 
 	private Opcional getOpcionalOuCria(String descricao) {
@@ -356,5 +432,24 @@ public class HomeController {
 		return loja;
 	}
 	
+	private Cambio getCambioOuCria(String descricao) {
+		Cambio cambio = this.cambioService.getPorDescricao(descricao);
+		if(cambio == null) {
+			cambio = new Cambio();
+			cambio.setDescricao(descricao);
+			this.cambioService.save(cambio);
+		}
+		return cambio;
+	}	
+	
+	private Combustivel getCombustivelOuCria(String descricao) {
+		Combustivel combustivel = this.combustivelService.getPorDescricao(descricao);
+		if (combustivel == null) {
+			combustivel = new Combustivel();
+			combustivel.setDescricao(descricao);
+			this.combustivelService.save(combustivel);
+		}
+		return combustivel;
+	}	
 	
 }

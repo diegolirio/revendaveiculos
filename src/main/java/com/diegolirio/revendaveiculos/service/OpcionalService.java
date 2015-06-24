@@ -11,17 +11,13 @@ import com.diegolirio.revendaveiculos.model.Veiculo;
 import com.diegolirio.revendaveiculos.model.VeiculoOpcional;
 
 @Service("opcionalService")
-public class OpcionalService {
+public class OpcionalService extends AbstractGenericService<Opcional> {
 
 	@Autowired
 	private OpcionalDao opcionalDao;
 
 	public List<VeiculoOpcional> getListaPorVeiculo(Veiculo veiculo) {
 		return this.opcionalDao.getListaPorVeiculo(veiculo);
-	}
-
-	public void save(Opcional opcional) {
-		this.opcionalDao.save(opcional);
 	}
 
 	public Opcional getPorDescricao(String descricao) {

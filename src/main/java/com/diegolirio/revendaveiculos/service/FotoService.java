@@ -10,14 +10,10 @@ import com.diegolirio.revendaveiculos.model.Foto;
 import com.diegolirio.revendaveiculos.model.Veiculo;
 
 @Service("fotoService")
-public class FotoService {
+public class FotoService extends AbstractGenericService<Foto> {
 
 	@Autowired
 	private FotoDao fotoDao;
-
-	public void save(Foto foto) {
-		this.fotoDao.save(foto);
-	}
 
 	public List<Foto> getListaPorVeiculo(Veiculo veiculo) {
 		return this.fotoDao.getListaPorVeiculo(veiculo);

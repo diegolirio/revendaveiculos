@@ -7,14 +7,10 @@ import com.diegolirio.revendaveiculos.dao.CorDao;
 import com.diegolirio.revendaveiculos.model.Cor;
 
 @Service("corService")
-public class CorService {
+public class CorService extends AbstractGenericService<Cor> {
 
 	@Autowired
 	private CorDao corDao;
-
-	public void save(Cor cor) {
-		this.corDao.save(cor);
-	}
 
 	public Cor getPorDescricao(String descricao) {
 		return this.corDao.getPorDescricao(descricao);

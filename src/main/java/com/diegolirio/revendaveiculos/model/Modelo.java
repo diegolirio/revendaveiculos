@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 import org.codehaus.jackson.annotate.JsonBackReference;
 
 @Entity
-public class Modelo {
+public class Modelo extends Model {
 
 	@Id @GeneratedValue
 	private long id;

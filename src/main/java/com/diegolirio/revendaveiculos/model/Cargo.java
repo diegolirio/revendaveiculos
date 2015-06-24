@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Cargo {
+public class Cargo extends Model {
 
 	@Id @GeneratedValue
 	private long id;

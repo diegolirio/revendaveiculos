@@ -1,6 +1,6 @@
 package com.diegolirio.revendaveiculos.model;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,25 +10,17 @@ import javax.persistence.OneToMany;
 import org.codehaus.jackson.annotate.JsonBackReference;
 
 @Entity
-public class Cor extends Model {
-	
+public class Combustivel extends Model {
+
 	@Id @GeneratedValue
 	private long id;
 	
 	private String descricao;
 	
 	@JsonBackReference
-	@OneToMany(mappedBy="cor")
-	private Set<Veiculo> veiculos;
+	@OneToMany(mappedBy="combustivel")
+	private List<Versao> versoes;
 
-	public Cor() {}
-	
-	public Cor(long id, String descricao, Set<Veiculo> veiculos) {
-		this.id = id;
-		this.descricao = descricao;
-		this.veiculos = veiculos;
-	}		
-	
 	public long getId() {
 		return id;
 	}
@@ -45,13 +37,14 @@ public class Cor extends Model {
 		this.descricao = descricao;
 	}
 
-	public Set<Veiculo> getVeiculos() {
-		return veiculos;
+	public List<Versao> getVersoes() {
+		return versoes;
 	}
 
-	public void setVeiculos(Set<Veiculo> veiculos) {
-		this.veiculos = veiculos;
+	public void setVersoes(List<Versao> versoes) {
+		this.versoes = versoes;
 	}
+	
 	
 	
 }

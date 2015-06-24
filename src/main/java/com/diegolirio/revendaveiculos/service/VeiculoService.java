@@ -9,25 +9,13 @@ import com.diegolirio.revendaveiculos.dao.VeiculoDao;
 import com.diegolirio.revendaveiculos.model.Veiculo;
 
 @Service("veiculoService")
-public class VeiculoService {
+public class VeiculoService extends AbstractGenericService<Veiculo> {
 
 	@Autowired
 	private VeiculoDao veiculoDao;
 
 	public List<Veiculo> getListHome() {
 		return this.veiculoDao.getListHome();
-	}
-
-	public Veiculo get(long id) {
-		return this.veiculoDao.get(Veiculo.class, id);
-	}
-
-	public void save(Veiculo veiculo) {
-		this.veiculoDao.save(veiculo);
-	}
-
-	public List<Veiculo> getList() {
-		return this.veiculoDao.getList(Veiculo.class);
 	}
 
 }

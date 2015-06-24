@@ -60,7 +60,7 @@ public class VeiculoController {
 	@RequestMapping(value="/get/list", method=RequestMethod.GET, produces="application/json")
 	public ResponseEntity<String> getList() {
 		try {
-			List<Veiculo> veiculos = this.veiculoService.getList();
+			List<Veiculo> veiculos = this.veiculoService.getList(Veiculo.class);
 			return new ResponseEntity<String>(new ObjectMapper().writeValueAsString(veiculos ), HttpStatus.OK);
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -76,7 +76,7 @@ public class VeiculoController {
 	@RequestMapping(value="/get/{id}", method=RequestMethod.GET, produces="application/json")
 	public ResponseEntity<String> getPorId(@PathVariable("id") long id) {
 		try {
-			Veiculo veiculo = this.veiculoService.get(id);
+			Veiculo veiculo = this.veiculoService.get(Veiculo.class, id);
 //			for (Opcional o : veiculo.getOpcionais()) {
 //				System.out.println(o.getDescricao());
 //			}

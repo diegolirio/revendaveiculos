@@ -7,12 +7,9 @@ import com.diegolirio.revendaveiculos.dao.VersaoDao;
 import com.diegolirio.revendaveiculos.model.Versao;
 
 @Service("versaoService")
-public class VersaoService {
+public class VersaoService extends AbstractGenericService<Versao> {
 
 	@Autowired
 	private VersaoDao versaoDao;
 
-	public void save(Versao versao) {
-		this.versaoDao.save(versao);
-	}
 }

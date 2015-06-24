@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
  *
  */
 @Entity
-public class VeiculoOpcional {
+public class VeiculoOpcional extends Model {
 
 	@Id @GeneratedValue
 	private long id;

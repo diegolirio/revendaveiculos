@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
+
 @Entity
 public class Marca {
 
@@ -17,6 +19,7 @@ public class Marca {
 
 	private String urlImage;
 
+	@JsonBackReference
 	@OneToMany(mappedBy="marca")
 	private Set<Modelo> modelos;
 	

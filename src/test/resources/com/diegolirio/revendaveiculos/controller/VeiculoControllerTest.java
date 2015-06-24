@@ -52,11 +52,11 @@ public class VeiculoControllerTest {
 	/*
 	 * Test Rest Full
 	 */
-	@Test
-	public void testDeveRetornarListaDeVeiculosEmFormatoJSON() throws Exception {
-		mockMvc.perform(get("/veiculo/get/list/home"))
-				.andExpect(status().isOk())
-				.andExpect(content().contentType("application/json"));
-	}
+//	@Test
+//	public void testDeveRetornarListaDeVeiculosEmFormatoJSON() throws Exception {
+//		mockMvc.perform(get("/veiculo/get/list/home"))
+//				.andExpect(status().isOk())
+//				.andExpect(content().contentType("application/json"));
+//	}
 
 }

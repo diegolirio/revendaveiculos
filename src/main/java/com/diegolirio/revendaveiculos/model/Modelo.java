@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
+
 @Entity
 public class Modelo {
 
@@ -22,6 +24,7 @@ public class Modelo {
 	@ManyToOne
 	private Tipo tipo;
 	
+	@JsonBackReference
 	@OneToMany(mappedBy="modelo")
 	private Set<Versao> versoes;
 

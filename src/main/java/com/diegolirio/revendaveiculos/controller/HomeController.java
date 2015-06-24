@@ -81,7 +81,7 @@ public class HomeController {
 		return "home";
 	}			
 	
-	@RequestMapping(value = "/criar_cadastro", method = RequestMethod.GET)
+	@RequestMapping(value = "/criar_base", method = RequestMethod.GET)
 	public String createInitCadastro() {
 		
 		// se nao existe Ferrari 
@@ -125,13 +125,13 @@ public class HomeController {
 		Opcional ar = ob.comDescricao("Ar Condicionado").build();
 		this.opcionalService.save(ar);
 
-		Opcional dh = ob.comDescricao("Dire√ß√£o Hidra√∫lica").build();
+		Opcional dh = ob.comDescricao("DireÁ„o Hidraulica").build();
 		this.opcionalService.save(dh);
 
-		Opcional ve = ob.comDescricao("Vidro El√©trico").build();
+		Opcional ve = ob.comDescricao("Vidro ElÈtrico").build();
 		this.opcionalService.save(ve);
 
-		Opcional te = ob.comDescricao("Trava El√©trica").build();
+		Opcional te = ob.comDescricao("Trava ElÈtrica").build();
 		this.opcionalService.save(te);
 
 		Opcional air = ob.comDescricao("Air Bag").build();

@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
+
 @Entity
 public class Tipo {
 
@@ -15,6 +17,7 @@ public class Tipo {
 	
 	private String descricao;
 	
+	@JsonBackReference
 	@OneToMany(mappedBy="tipo")
 	private Set<Modelo> modelos;
 

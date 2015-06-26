@@ -97,117 +97,16 @@ public class HomeController {
 	@RequestMapping(value = "/criar_base", method = RequestMethod.GET)
 	public String createInitCadastro() {
 		
-//		// se nao existe Ferrari 
-//		this.getMarcaOuCria("Ferrari");
-//
-//		Marca pegeout = this.getMarcaOuCria("Pegeout");
-//		Cor cor = this.getCorOuCria("Branco");
-//		Loja matriz = getLojaOuCria("Matriz");
-//
-//		ModeloBuilder mb = new ModeloBuilder();
-//		Modelo modelo = mb
-//				.comDescricao("308")
-//				.comMarca(pegeout)
-//				.getInstance();
-//		this.modeloService.save(modelo);
-//
-//		Combustivel flex = this.getCombustivelOuCria("Flex");
-//		
-//		VersaoBuilder versaoBuilder = new VersaoBuilder();
-//		Versao versao = versaoBuilder
-//				.comDescricao("Quiksilver")
-//				.comMotor(1.8f)
-//				.comModelo(modelo)
-//				.comAnoFabricacao(2015)
-//				.comAnoModelo(2015)
-//				.comCombustivel(flex)
-//				.build();
-//		this.versaoService.save(versao);
-//		
-//		List<Foto> fotos = new ArrayList<Foto>();
-//		
-//		VeiculoBuilder vb = new VeiculoBuilder();
-//		Veiculo veiculo = vb
-//				.comCor(cor)
-//				.comKm(0d)
-//				.comLoja(matriz)
-//				.comVersao(versao)
-//				.comUrlFotoPrincipal("/revendaveiculos/static/images/veiculos/34266268_1.jpeg")
-//				.comFotos(fotos)
-//				.getInstance();
-//		this.veiculoService.save(veiculo);
-//		
-//		OpcionalBuilder ob = new OpcionalBuilder();
-//		Opcional ar = ob.comDescricao("Ar Condicionado").build();
-//		this.opcionalService.save(ar);
-//
-//		Opcional dh = ob.comDescricao("Direção Hidraulica").build();
-//		this.opcionalService.save(dh);
-//
-//		Opcional ve = ob.comDescricao("Vidro Elétrico").build();
-//		this.opcionalService.save(ve);
-//
-//		Opcional te = ob.comDescricao("Trava Elétrica").build();
-//		this.opcionalService.save(te);
-//
-//		Opcional air = ob.comDescricao("Air Bag").build();
-//		this.opcionalService.save(air);
-//
-//		Opcional alarme = ob.comDescricao("Alarme").build();
-//		this.opcionalService.save(alarme);
-//		
-//		
-//		// TODO: retirar
-//		VeiculoOpcional vo = new VeiculoOpcional();
-//		vo.setOpcional(ar);
-//		vo.setVeiculo(veiculo);
-//		this.veiculoOpcionalService.save(vo);
-//		// TODO: retirar
-//		VeiculoOpcional vo2 = new VeiculoOpcional();
-//		vo2.setOpcional(dh);
-//		vo2.setVeiculo(veiculo);
-//		this.veiculoOpcionalService.save(vo2);		
-//		// TODO: retirar
-//		VeiculoOpcional vo3 = new VeiculoOpcional();
-//		vo3.setOpcional(ve);
-//		vo3.setVeiculo(veiculo);
-//		this.veiculoOpcionalService.save(vo3);
-//		// TODO: retirar
-//		VeiculoOpcional vo4 = new VeiculoOpcional();
-//		vo4.setOpcional(te);
-//		vo4.setVeiculo(veiculo);
-//		this.veiculoOpcionalService.save(vo4);		
-//		// TODO: retirar
-//		VeiculoOpcional vo5 = new VeiculoOpcional();
-//		vo5.setOpcional(air);
-//		vo5.setVeiculo(veiculo);
-//		this.veiculoOpcionalService.save(vo5);
-//		// TODO: retirar
-//		VeiculoOpcional vo6 = new VeiculoOpcional();
-//		vo6.setOpcional(alarme);
-//		vo6.setVeiculo(veiculo);
-//		this.veiculoOpcionalService.save(vo6);
-//		
-//		FotoBuilder fb = new FotoBuilder();
-//		Foto f1 = fb
-//				.comPrincipal(true)
-//				.comUri("/revendaveiculos/static/images/veiculos/34266268_1.jpeg")
-//				.comVeiculo(veiculo)
-//				.build();
-//		
-//		this.fotoService.save(f1);
-//
-//		Foto f2 = fb
-//				.comPrincipal(false)
-//				.comUri("/revendaveiculos/static/images/veiculos/34266269_1.jpeg")
-//				.comVeiculo(veiculo)
-//				.build();
-//		
-//		this.fotoService.save(f2);
-//		
-//		this.criarGol2014();
+		// se nao existe Ferrari 
+		this.getMarcaOuCria("Ferrari");
+
+		this.criarPegeout3082014();
 		
 		this.criarEcoSport2014();
+		
+		this.criarLandRoverRangeRover2015();
+		
+		this.criarGol2014();
 		
 		// New Civic
 		// http://www.ebseventos.com.br/wp-content/ccslider-upload/FOTO%20143-700x400.jpg
@@ -225,6 +124,101 @@ public class HomeController {
 		this.usuarioService.save(usuario);
 		
 		return "redirect:/";
+	}
+
+	private void criarPegeout3082014() {
+		
+		Marca pegeout = this.getMarcaOuCria("Pegeout");
+		Cor cor = this.getCorOuCria("Branco");
+		Loja matriz = getLojaOuCria("Matriz");
+
+		ModeloBuilder mb = new ModeloBuilder();
+		Modelo modelo = mb
+				.comDescricao("308")
+				.comMarca(pegeout)
+				.getInstance();
+		this.modeloService.save(modelo);
+
+		Combustivel flex = this.getCombustivelOuCria("Flex");
+		
+		VersaoBuilder versaoBuilder = new VersaoBuilder();
+		Versao versao = versaoBuilder
+				.comDescricao("Quiksilver")
+				.comMotor(1.8f)
+				.comModelo(modelo)
+				.comAnoFabricacao(2015)
+				.comAnoModelo(2015)
+				.comCombustivel(flex)
+				.build();
+		this.versaoService.save(versao);
+		
+		List<Foto> fotos = new ArrayList<Foto>();
+		
+		VeiculoBuilder vb = new VeiculoBuilder();
+		Veiculo veiculo = vb
+				.comCor(cor)
+				.comKm(0d)
+				.comLoja(matriz)
+				.comVersao(versao)
+				.comUrlFotoPrincipal("http://mlb-s1-p.mlstatic.com/peugeot-308-allure-20-flex-2014-automatico-teto-novissimo-581401-MLB8669941040_062015-O.jpg")
+				.comFotos(fotos)
+				.getInstance();
+		this.veiculoService.save(veiculo);
+		
+		Opcional ar = this.getOpcionalOuCria("Ar Condicionado");
+		Opcional dh = this.getOpcionalOuCria("Direção Hidraulica");
+		Opcional ve = this.getOpcionalOuCria("Vidro Elétrico");
+		Opcional te = this.getOpcionalOuCria("Trava Elétrica");
+		Opcional air = this.getOpcionalOuCria("Air Bag");
+		Opcional alarme = this.getOpcionalOuCria("Alarme");
+		
+		// TODO: retirar
+		VeiculoOpcional vo = new VeiculoOpcional();
+		vo.setOpcional(ar);
+		vo.setVeiculo(veiculo);
+		this.veiculoOpcionalService.save(vo);
+		// TODO: retirar
+		VeiculoOpcional vo2 = new VeiculoOpcional();
+		vo2.setOpcional(dh);
+		vo2.setVeiculo(veiculo);
+		this.veiculoOpcionalService.save(vo2);		
+		// TODO: retirar
+		VeiculoOpcional vo3 = new VeiculoOpcional();
+		vo3.setOpcional(ve);
+		vo3.setVeiculo(veiculo);
+		this.veiculoOpcionalService.save(vo3);
+		// TODO: retirar
+		VeiculoOpcional vo4 = new VeiculoOpcional();
+		vo4.setOpcional(te);
+		vo4.setVeiculo(veiculo);
+		this.veiculoOpcionalService.save(vo4);		
+		// TODO: retirar
+		VeiculoOpcional vo5 = new VeiculoOpcional();
+		vo5.setOpcional(air);
+		vo5.setVeiculo(veiculo);
+		this.veiculoOpcionalService.save(vo5);
+		// TODO: retirar
+		VeiculoOpcional vo6 = new VeiculoOpcional();
+		vo6.setOpcional(alarme);
+		vo6.setVeiculo(veiculo);
+		this.veiculoOpcionalService.save(vo6);
+		
+		FotoBuilder fb = new FotoBuilder();
+		Foto f1 = fb
+				.comPrincipal(true)
+				.comUri("/revendaveiculos/static/images/veiculos/34266268_1.jpeg")
+				.comVeiculo(veiculo)
+				.build();
+		
+		this.fotoService.save(f1);
+
+		Foto f2 = fb
+				.comPrincipal(false)
+				.comUri("/revendaveiculos/static/images/veiculos/34266269_1.jpeg")
+				.comVeiculo(veiculo)
+				.build();
+		
+		this.fotoService.save(f2);
 	}
 
 	private void criarEcoSport2014() {
@@ -286,10 +280,69 @@ public class HomeController {
 		this.veiculoOpcionalService.save(vo6);		
 	}
 	
+	private void criarLandRoverRangeRover2015() {
+		Marca land = this.getMarcaOuCria("Land Rover");
+		
+		ModeloBuilder mb = new ModeloBuilder();
+		Modelo range = mb
+				.comDescricao("Range Rover Evoque")
+				.comMarca(land)
+				.getInstance();
+		this.modeloService.save(range);		
+		
+		VersaoBuilder versaoBuilder = new VersaoBuilder();
+		
+		Cambio automatico = this.getCambioOuCria("Automático");
+		
+		Combustivel comb = this.getCombustivelOuCria("Gasolina");
+		
+		Versao versao = versaoBuilder
+				.comDescricao("Si4 Coupé Pure Tech Pack")
+				.comMotor(2.0f)
+				.comModelo(range)
+				.comAnoFabricacao(2015)
+				.comAnoModelo(2015)
+				.comQuantidadePortas(4)
+				.comCambio(automatico)
+				.comCombustivel(comb)
+				.build();
+		this.versaoService.save(versao);		
+		
+		Cor cor = this.getCorOuCria("Branco");
+		Loja matriz = getLojaOuCria("Matriz");
+		
+		List<Foto> fotos = new ArrayList<Foto>();		
+		
+		VeiculoBuilder vb = new VeiculoBuilder();
+		Veiculo veiculo = vb
+				.comCor(cor)
+				.comKm(10500.0d)
+				.comLoja(matriz)
+				.comVersao(versao)
+				.comUrlFotoPrincipal("http://minacars.ae/50-thickbox_default/land-rover-suv.jpg")
+				.comFotos(fotos)
+				.getInstance();
+		this.veiculoService.save(veiculo);		
+		
+		Opcional arCondicionado = getOpcionalOuCria("Ar Condicionado");
+		Opcional alarme = getOpcionalOuCria("Alarme");
+		
+		// TODO: retirar
+		VeiculoOpcional vo = new VeiculoOpcional();
+		vo.setOpcional(arCondicionado);
+		vo.setVeiculo(veiculo);
+		this.veiculoOpcionalService.save(vo);
+		// TODO: retirar
+		VeiculoOpcional vo6 = new VeiculoOpcional();
+		vo6.setOpcional(alarme);
+		vo6.setVeiculo(veiculo);
+		this.veiculoOpcionalService.save(vo6);		
+	}	
+	
 	private void criarGol2014() {
 		Marca volks = this.getMarcaOuCria("Volksvagem");
 		
-		Cor azul = this.getCorOuCria("Azul");
+		Cor amarelo = this.getCorOuCria("Amarelo");
 		
 		Loja matriz = getLojaOuCria("Matriz");
 		
@@ -316,11 +369,11 @@ public class HomeController {
 		
 		VeiculoBuilder vb = new VeiculoBuilder();
 		Veiculo veiculo = vb
-				.comCor(azul)
+				.comCor(amarelo)
 				.comKm(46218.0d)
 				.comLoja(matriz)
 				.comVersao(versao)
-				.comUrlFotoPrincipal("/revendaveiculos/static/images/veiculos/gol_1_35316517_1.jpg")
+				.comUrlFotoPrincipal("http://carplace.uol.com.br/wp-content/uploads/2013/05/Novo_Gol_Rallye_2014_02-2.jpg")
 				.comFotos(fotos)
 				.getInstance();
 		this.veiculoService.save(veiculo);
@@ -342,59 +395,59 @@ public class HomeController {
 		FotoBuilder fb = new FotoBuilder();
 		Foto f1 = fb
 				.comPrincipal(true)
-				.comUri("/revendaveiculos/static/images/veiculos/gol_1_35316517_1.jpg")
+				.comUri("http://carplace.uol.com.br/wp-content/uploads/2013/05/Novo_Gol_Rallye_2014_02-2.jpg")
 				.comVeiculo(veiculo)
 				.build();
 		this.fotoService.save(f1);
-
-		Foto f2 = fb
-				.comPrincipal(false)
-				.comUri("/revendaveiculos/static/images/veiculos/gol_2_35316519_1.jpg")
-				.comVeiculo(veiculo)
-				.build();
-		this.fotoService.save(f2);
-
-		Foto f3 = fb
-				.comPrincipal(false)
-				.comUri("/revendaveiculos/static/images/veiculos/gol_3_35316520_1.jpg")
-				.comVeiculo(veiculo)
-				.build();
-		this.fotoService.save(f3);
-
-		Foto f4 = fb
-				.comPrincipal(false)
-				.comUri("/revendaveiculos/static/images/veiculos/gol_4_35316521_1.jpg")
-				.comVeiculo(veiculo)
-				.build();
-		this.fotoService.save(f4);
-
-		Foto f5 = fb
-				.comPrincipal(false)
-				.comUri("/revendaveiculos/static/images/veiculos/gol_5_35316522_1.jpg")
-				.comVeiculo(veiculo)
-				.build();
-		this.fotoService.save(f5);
-		
-		Foto f6 = fb
-				.comPrincipal(false)
-				.comUri("/revendaveiculos/static/images/veiculos/gol_6_35316524_1.jpg")
-				.comVeiculo(veiculo)
-				.build();
-		this.fotoService.save(f6);
-		
-		Foto f7 = fb
-				.comPrincipal(false)
-				.comUri("/revendaveiculos/static/images/veiculos/gol_7_35316525_1.jpg")
-				.comVeiculo(veiculo)
-				.build();
-		this.fotoService.save(f7);
-		
-		Foto f8 = fb
-				.comPrincipal(false)
-				.comUri("/revendaveiculos/static/images/veiculos/gol_8_35316526_1.jpg")
-				.comVeiculo(veiculo)
-				.build();
-		this.fotoService.save(f8);
+//
+//		Foto f2 = fb
+//				.comPrincipal(false)
+//				.comUri("/revendaveiculos/static/images/veiculos/gol_2_35316519_1.jpg")
+//				.comVeiculo(veiculo)
+//				.build();
+//		this.fotoService.save(f2);
+//
+//		Foto f3 = fb
+//				.comPrincipal(false)
+//				.comUri("/revendaveiculos/static/images/veiculos/gol_3_35316520_1.jpg")
+//				.comVeiculo(veiculo)
+//				.build();
+//		this.fotoService.save(f3);
+//
+//		Foto f4 = fb
+//				.comPrincipal(false)
+//				.comUri("/revendaveiculos/static/images/veiculos/gol_4_35316521_1.jpg")
+//				.comVeiculo(veiculo)
+//				.build();
+//		this.fotoService.save(f4);
+//
+//		Foto f5 = fb
+//				.comPrincipal(false)
+//				.comUri("/revendaveiculos/static/images/veiculos/gol_5_35316522_1.jpg")
+//				.comVeiculo(veiculo)
+//				.build();
+//		this.fotoService.save(f5);
+//		
+//		Foto f6 = fb
+//				.comPrincipal(false)
+//				.comUri("/revendaveiculos/static/images/veiculos/gol_6_35316524_1.jpg")
+//				.comVeiculo(veiculo)
+//				.build();
+//		this.fotoService.save(f6);
+//		
+//		Foto f7 = fb
+//				.comPrincipal(false)
+//				.comUri("/revendaveiculos/static/images/veiculos/gol_7_35316525_1.jpg")
+//				.comVeiculo(veiculo)
+//				.build();
+//		this.fotoService.save(f7);
+//		
+//		Foto f8 = fb
+//				.comPrincipal(false)
+//				.comUri("/revendaveiculos/static/images/veiculos/gol_8_35316526_1.jpg")
+//				.comVeiculo(veiculo)
+//				.build();
+//		this.fotoService.save(f8);
 		
 	}
 	

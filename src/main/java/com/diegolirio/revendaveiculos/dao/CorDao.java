@@ -16,6 +16,8 @@ public class CorDao extends AbstractGenericDao<Cor> {
 								      .getSingleResult();
 		} catch(NoResultException e) {
 			return null;
+		} catch (Exception e) {
+			throw new RuntimeException(e.getMessage() + "descricao="+descricao);
 		}
 	}
 

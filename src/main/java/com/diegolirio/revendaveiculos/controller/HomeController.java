@@ -45,6 +45,8 @@ import com.diegolirio.revendaveiculos.service.VersaoService;
 @Controller
 public class HomeController {
 	
+	private static final String BRANCO = "Branco";
+
 	@Autowired
 	private MarcaService marcaService;
 
@@ -129,7 +131,7 @@ public class HomeController {
 	private void criarPegeout3082014() {
 		
 		Marca pegeout = this.getMarcaOuCria("Pegeout");
-		Cor cor = this.getCorOuCria("Branco");
+		Cor cor = this.getCorOuCria("Preto");
 		Loja matriz = getLojaOuCria("Matriz");
 
 		ModeloBuilder mb = new ModeloBuilder();
@@ -249,7 +251,7 @@ public class HomeController {
 				.build();
 		this.versaoService.save(versao);		
 		
-		Cor vermelho = this.getCorOuCria("Azul");
+		Cor vermelho = this.getCorOuCria(BRANCO);
 		Loja matriz = getLojaOuCria("Matriz");
 		
 		List<Foto> fotos = new ArrayList<Foto>();		
@@ -260,7 +262,7 @@ public class HomeController {
 				.comKm(10500.0d)
 				.comLoja(matriz)
 				.comVersao(versao)
-				.comUrlFotoPrincipal("http://xef.vn/uploads/gallery/2014/05/1400226216Ford%20EcoSport%202-1-750x400.jpg")
+				.comUrlFotoPrincipal("dourado-img-seminovos/37241888_1.jpg")
 				.comFotos(fotos)
 				.getInstance();
 		this.veiculoService.save(veiculo);		
@@ -308,7 +310,7 @@ public class HomeController {
 				.build();
 		this.versaoService.save(versao);		
 		
-		Cor cor = this.getCorOuCria("Branco");
+		Cor cor = this.getCorOuCria("Dourado");
 		Loja matriz = getLojaOuCria("Matriz");
 		
 		List<Foto> fotos = new ArrayList<Foto>();		
@@ -319,7 +321,7 @@ public class HomeController {
 				.comKm(10500.0d)
 				.comLoja(matriz)
 				.comVersao(versao)
-				.comUrlFotoPrincipal("http://minacars.ae/50-thickbox_default/land-rover-suv.jpg")
+				.comUrlFotoPrincipal("dourado-img-seminovos/54943_1.jpg")
 				.comFotos(fotos)
 				.getInstance();
 		this.veiculoService.save(veiculo);		

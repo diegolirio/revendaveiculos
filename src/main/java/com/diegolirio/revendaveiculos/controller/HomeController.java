@@ -209,6 +209,12 @@ public class HomeController {
 		
 		this.criarEcoSport2014();
 		
+		// New Civic
+		// http://www.ebseventos.com.br/wp-content/ccslider-upload/FOTO%20143-700x400.jpg
+		
+		// Renault
+		// http://s3.amazonaws.com/bundlr-app-production/content_images/images/large/519cbe3d6a19e30002001b8f/Renault-Captur-live-premiere-at-2013-Geneva-Motor-Show-02.jpg?1369226815
+		
 		
 		UsuarioBuilder ub = new UsuarioBuilder();
 		Usuario usuario = ub
@@ -249,7 +255,7 @@ public class HomeController {
 				.build();
 		this.versaoService.save(versao);		
 		
-		Cor vermelho = this.getCorOuCria("Vermelho");
+		Cor vermelho = this.getCorOuCria("Azul");
 		Loja matriz = getLojaOuCria("Matriz");
 		
 		List<Foto> fotos = new ArrayList<Foto>();		
@@ -260,7 +266,7 @@ public class HomeController {
 				.comKm(10500.0d)
 				.comLoja(matriz)
 				.comVersao(versao)
-				.comUrlFotoPrincipal("https://lh5.googleusercontent.com/qBT4ygHgQpHzhyezlcEdVXvNZP8ArBVUIyi7fD_5Uy7Q5wgbZmDvPcEGkBN9Pcu8TmCOHKEv=w1576-h655")
+				.comUrlFotoPrincipal("http://xef.vn/uploads/gallery/2014/05/1400226216Ford%20EcoSport%202-1-750x400.jpg")
 				.comFotos(fotos)
 				.getInstance();
 		this.veiculoService.save(veiculo);		

@@ -22,7 +22,7 @@ public class FotoController {
 
 	@Autowired
 	private FotoService fotoService;
-
+	
 	@RequestMapping(value="/get/lista/por/veiculo", method=RequestMethod.GET, consumes="application/json", produces="application/json")
 	public ResponseEntity<String> getListaPorVeiculo(@RequestBody Veiculo veiculo) {
 		try {

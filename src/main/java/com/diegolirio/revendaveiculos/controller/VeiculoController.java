@@ -2,6 +2,8 @@ package com.diegolirio.revendaveiculos.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -55,11 +57,17 @@ public class VeiculoController {
 	
 	/**
 	 * Retorna Todos os veiculos
+	 * @param response 
 	 * @return JSON
 	 */
 	@RequestMapping(value="/get/list", method=RequestMethod.GET, produces="application/json")
-	public ResponseEntity<String> getList() {
+	public ResponseEntity<String> getList(HttpServletResponse response) {
 		try {
+//			response.setHeader("Access-Control-Allow-Origin", "*");
+//            response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+//            response.setHeader("Access-Control-Max-Age", "3600");
+//            response.setHeader("Access-Control-Allow-Headers", "x-requested-with");
+			
 			List<Veiculo> veiculos = this.veiculoService.getList(Veiculo.class);
 			return new ResponseEntity<String>(new ObjectMapper().writeValueAsString(veiculos ), HttpStatus.OK);
 		} catch(Exception e) {

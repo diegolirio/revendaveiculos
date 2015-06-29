@@ -144,6 +144,9 @@ public class HomeController {
 		Combustivel flex = this.getCombustivelOuCria("Flex");
 		
 		VersaoBuilder versaoBuilder = new VersaoBuilder();
+		
+		Cambio cambio = this.getCambioOuCria("Automatico");
+		
 		Versao versao = versaoBuilder
 				.comDescricao("Quiksilver")
 				.comMotor(1.8f)
@@ -151,6 +154,7 @@ public class HomeController {
 				.comAnoFabricacao(2015)
 				.comAnoModelo(2015)
 				.comCombustivel(flex)
+				.comCambio(cambio)
 				.build();
 		this.versaoService.save(versao);
 		
@@ -164,13 +168,18 @@ public class HomeController {
 				.comVersao(versao)
 				.comUrlFotoPrincipal("http://mlb-s1-p.mlstatic.com/peugeot-308-allure-20-flex-2014-automatico-teto-novissimo-581401-MLB8669941040_062015-O.jpg")
 				.comFotos(fotos)
+				.comValor(72990.90)
+				.comObservacao("Zero KM pronta entrega!!!")
 				.getInstance();
 		this.veiculoService.save(veiculo);
 		
 		Opcional ar = this.getOpcionalOuCria("Ar Condicionado");
-		Opcional dh = this.getOpcionalOuCria("Direção Hidraulica");
-		Opcional ve = this.getOpcionalOuCria("Vidro Elétrico");
-		Opcional te = this.getOpcionalOuCria("Trava Elétrica");
+		Opcional dh = this.getOpcionalOuCria("Direcao Hidraulica");
+		// TODO Opcional dh = this.getOpcionalOuCria("Direção Hidraulica");
+		Opcional ve = this.getOpcionalOuCria("Vidro Eletrico");
+		//Opcional ve = this.getOpcionalOuCria("Vidro Elétrico");
+		Opcional te = this.getOpcionalOuCria("Trava Eletrica");
+		//Opcional te = this.getOpcionalOuCria("Trava Elétrica");
 		Opcional air = this.getOpcionalOuCria("Air Bag");
 		Opcional alarme = this.getOpcionalOuCria("Alarme");
 		
@@ -264,6 +273,8 @@ public class HomeController {
 				.comVersao(versao)
 				.comUrlFotoPrincipal("dourado-img-seminovos/37241888_1.jpg")
 				.comFotos(fotos)
+				.comValor(57000.99d)
+				.comObservacao("Seminovo somente 10 mil KM rodado, 2014, BLINDADO NIII-A EB BLINDADOS, PRONTA ENTREGA!!!! VERSAO COM GPS, BANCOS EM COURO. ACEITAMOS VEICULOS NA TROCA COM OTIMA AVALIACAO!!! FINANCIAMOS COM OTIMAS TAXAS !!! CONSULTE OUTROS MODELOS E VERSOES.")				
 				.getInstance();
 		this.veiculoService.save(veiculo);		
 		
@@ -294,12 +305,12 @@ public class HomeController {
 		
 		VersaoBuilder versaoBuilder = new VersaoBuilder();
 		
-		Cambio automatico = this.getCambioOuCria("Automático");
+		Cambio automatico = this.getCambioOuCria("Automatico");
 		
 		Combustivel comb = this.getCombustivelOuCria("Gasolina");
 		
 		Versao versao = versaoBuilder
-				.comDescricao("Si4 Coupé Pure Tech Pack")
+				.comDescricao("Si4 Coupe Pure Tech Pack")
 				.comMotor(2.0f)
 				.comModelo(range)
 				.comAnoFabricacao(2015)
@@ -318,11 +329,13 @@ public class HomeController {
 		VeiculoBuilder vb = new VeiculoBuilder();
 		Veiculo veiculo = vb
 				.comCor(cor)
-				.comKm(10500.0d)
+				.comKm(5000.0d)
 				.comLoja(matriz)
 				.comVersao(versao)
 				.comUrlFotoPrincipal("dourado-img-seminovos/54943_1.jpg")
 				.comFotos(fotos)
+				.comValor(135000.90)
+				.comObservacao("Somente 5 mil km rodado!")				
 				.getInstance();
 		this.veiculoService.save(veiculo);		
 		
@@ -377,6 +390,8 @@ public class HomeController {
 				.comVersao(versao)
 				.comUrlFotoPrincipal("http://carplace.uol.com.br/wp-content/uploads/2013/05/Novo_Gol_Rallye_2014_02-2.jpg")
 				.comFotos(fotos)
+				.comValor(32000.00)
+				.comObservacao("GOL Seminovo abaixo da tabela, pegamos o seu na troca, venha conferir!")					
 				.getInstance();
 		this.veiculoService.save(veiculo);
 		

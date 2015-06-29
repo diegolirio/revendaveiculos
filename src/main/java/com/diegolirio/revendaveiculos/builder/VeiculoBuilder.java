@@ -35,6 +35,10 @@ public class VeiculoBuilder {
 	private List<Foto> fotos;
 
 	private String urlFotoPrincipal;
+
+	private double valor;
+
+	private String observacao;
 	
 	public VeiculoBuilder comId(long id) {
 		this.id = id;
@@ -96,9 +100,23 @@ public class VeiculoBuilder {
 		return this;
 	}
 	
-	public Veiculo getInstance() {
-		return new Veiculo(id, renavam, placa, km, chassi, versao, cor, opcionais, dataVenda, loja, urlFotoPrincipal, fotos);
+	public VeiculoBuilder comValor(double valor) {
+		this.valor = valor;
+		return this;
 	}
+	
+	public VeiculoBuilder comObservacao(String observacao) {
+		this.observacao = observacao;
+		return this;
+	}
+	
+	public Veiculo getInstance() {
+		Veiculo veiculo = new Veiculo(id, renavam, placa, km, chassi, versao, cor, opcionais, dataVenda, loja, urlFotoPrincipal, fotos);
+		veiculo.setValor(valor);
+		veiculo.setObservacao(observacao);
+		return veiculo;
+	}
+
 
 
 }

@@ -97,4 +97,21 @@ public class VeiculoController {
 		}
 	}
 	
+	/**
+	 * Busca de veiculos por paginacao
+	 * @param firstResult -> posicao do primeiro
+	 * @param maxResults -> maximo de resultados
+	 * @return JSON
+	 */
+	@RequestMapping(value="/get/list/pagination/{firstResult}/{maxResults}")
+	public ResponseEntity<String> getListPagination(@PathVariable("firstResult") int firstResult, @PathVariable("maxResults") int maxResults) {
+		try {
+			List<Veiculo> list = this.veiculoService.getListPagination(firstResult, maxResults);
+			return new ResponseEntity<String>(new ObjectMapper().writeValueAsString(list ), HttpStatus.OK);
+		} catch(Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);			
+		}
+	}
+	
 }

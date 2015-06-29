@@ -48,6 +48,10 @@ public class Veiculo extends Model {
 	@OneToMany(mappedBy="veiculo", fetch=FetchType.EAGER)
 	private List<Foto> fotos;
 	
+	private String observacao;
+	
+	private double valor;
+	
 	public Veiculo(){}
 	
 	public Veiculo(long id) {
@@ -164,6 +168,22 @@ public class Veiculo extends Model {
 
 	public void setFotos(List<Foto> fotos) {
 		this.fotos = fotos;
+	}
+
+	public String getObservacao() {
+		return observacao;
+	}
+
+	public void setObservacao(String observacao) {
+		this.observacao = observacao;
+	}
+
+	public double getValor() {
+		return valor;
+	}
+
+	public void setValor(double valor) {
+		this.valor = valor;
 	}
 	
 	

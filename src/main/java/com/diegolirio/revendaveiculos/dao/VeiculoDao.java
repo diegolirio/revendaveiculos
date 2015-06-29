@@ -13,6 +13,11 @@ public class VeiculoDao extends AbstractGenericDao<Veiculo> {
 		return null;
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Veiculo> getListPagination(int first, int countReturn) {
+		List<Veiculo> list = (List<Veiculo>) super.manager.createQuery("Select v from Veiculo v").setFirstResult(first).setMaxResults(countReturn).getResultList();
+		return list;
+	}
 	
 
 	

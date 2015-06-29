@@ -17,5 +17,9 @@ public class VeiculoService extends AbstractGenericService<Veiculo> {
 	public List<Veiculo> getListHome() {
 		return this.veiculoDao.getListHome();
 	}
+	
+	public List<Veiculo> getListPagination(int first, int countReturn) {
+		return this.veiculoDao.getListPagination(first, countReturn);
+	}
 
 }

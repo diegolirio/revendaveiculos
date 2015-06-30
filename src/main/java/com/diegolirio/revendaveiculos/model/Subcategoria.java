@@ -5,20 +5,28 @@ import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.codehaus.jackson.annotate.JsonBackReference;
 
+/**
+ * @author desenv
+ *
+ */
 @Entity
-public class Tipo extends Model {
+public class Subcategoria extends Model {
 
 	@Id @GeneratedValue
 	private long id;
 	
 	private String descricao;
 	
+	@ManyToOne
+	private Categoria categoria;
+	
 	@JsonBackReference
-	@OneToMany(mappedBy="tipo")
+	@OneToMany(mappedBy="subcategoria")
 	private Set<Modelo> modelos;
 
 	public long getId() {
@@ -37,6 +45,14 @@ public class Tipo extends Model {
 		this.descricao = descricao;
 	}
 
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
 	public Set<Modelo> getModelos() {
 		return modelos;
 	}
@@ -44,7 +60,6 @@ public class Tipo extends Model {
 	public void setModelos(Set<Modelo> modelos) {
 		this.modelos = modelos;
 	}
-	
 	
 	
 	

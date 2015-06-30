@@ -22,7 +22,7 @@ public class Modelo extends Model {
 	private Marca marca;
 	
 	@ManyToOne
-	private Tipo tipo;
+	private Subcategoria subcategoria;
 	
 	@JsonBackReference
 	@OneToMany(mappedBy="modelo")
@@ -60,12 +60,12 @@ public class Modelo extends Model {
 		this.marca = marca;
 	}
 
-	public Tipo getTipo() {
-		return tipo;
+	public Subcategoria getSubcategoria() {
+		return this.subcategoria;
 	}
 
-	public void setTipo(Tipo tipo) {
-		this.tipo = tipo;
+	public void setSubcategoria(Subcategoria subcategoria) {
+		this.subcategoria = subcategoria;
 	}
 
 	public Set<Versao> getVersoes() {

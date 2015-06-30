@@ -17,6 +17,7 @@ public class ModeloDao extends AbstractGenericDao<Modelo> {
 			return (Modelo) super.manager.createQuery(sql)
 								    .setParameter("descricao", descricao)
 								    .setParameter("marcaId", marca.getId())
+								    .setParameter("subcategoriaId", subcategoria.getId())
 								    .getSingleResult();
 		} catch(NoResultException e) {
 			return null;

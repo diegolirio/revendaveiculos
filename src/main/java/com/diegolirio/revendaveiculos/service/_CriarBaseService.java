@@ -18,7 +18,7 @@ import com.diegolirio.revendaveiculos.model.Modelo;
 import com.diegolirio.revendaveiculos.model.Subcategoria;
 import com.diegolirio.revendaveiculos.model.Versao;
 
-@Service("_criarBaseService")
+@Service("criarBaseService")
 public class _CriarBaseService {
 
 	@Autowired

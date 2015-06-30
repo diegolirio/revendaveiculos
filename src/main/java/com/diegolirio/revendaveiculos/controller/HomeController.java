@@ -49,7 +49,7 @@ public class HomeController {
 	private static final String BRANCO = "Branco";
 
 	@Autowired
-	private _CriarBaseService _criarBaseService;
+	private _CriarBaseService criarBaseService;
 	
 	@Autowired
 	private MarcaService marcaService;
@@ -135,8 +135,8 @@ public class HomeController {
 	private void criarPegeout3082014() {
 		
 		Marca pegeout = this.getMarcaOuCria("Pegeout");
-		Cor cor = this._criarBaseService.getCorOuCria("Preto");
-		Loja matriz = this._criarBaseService.getLojaOuCria("Matriz");
+		Cor cor = this.criarBaseService.getCorOuCria("Preto");
+		Loja matriz = this.criarBaseService.getLojaOuCria("Matriz");
 
 		ModeloBuilder mb = new ModeloBuilder();
 		Modelo modelo = mb
@@ -264,8 +264,8 @@ public class HomeController {
 				.build();
 		this.versaoService.save(versao);		
 		
-		Cor vermelho = this._criarBaseService.getCorOuCria(BRANCO);
-		Loja matriz = this._criarBaseService.getLojaOuCria("Matriz");
+		Cor vermelho = this.criarBaseService.getCorOuCria(BRANCO);
+		Loja matriz = this.criarBaseService.getLojaOuCria("Matriz");
 		
 		List<Foto> fotos = new ArrayList<Foto>();		
 		
@@ -325,8 +325,8 @@ public class HomeController {
 				.build();
 		this.versaoService.save(versao);		
 		
-		Cor cor = this._criarBaseService.getCorOuCria("Dourado");
-		Loja matriz = this._criarBaseService.getLojaOuCria("Matriz");
+		Cor cor = this.criarBaseService.getCorOuCria("Dourado");
+		Loja matriz = this.criarBaseService.getLojaOuCria("Matriz");
 		
 		List<Foto> fotos = new ArrayList<Foto>();		
 		
@@ -360,18 +360,18 @@ public class HomeController {
 	
 	private void criarGol2014() {
 		
-		Marca volks = _criarBaseService.getMarcaOuCria(_CriarBaseService.VOLKSWAGEM);
-		Categoria categoria = _criarBaseService.getCategoriaOuCria(_CriarBaseService.HATCH);
-		Subcategoria subcategoria = _criarBaseService.getSubcategoriaOuCria(_CriarBaseService.POPULAR, categoria);
-		Modelo gol = _criarBaseService.getModeloOuCria(_CriarBaseService.VOLKSWAGEM_GOL, volks, subcategoria);
-		Combustivel flex = _criarBaseService.getCombustivelOuCria(_CriarBaseService.FLEX);
-		Cambio automatico = _criarBaseService.getCambioOuCria(_CriarBaseService.CAMBIO_AUTOMATICO);
-		Versao tec1ponto02014 = _criarBaseService.getVersaoOuCria("TEC", 1.0f, 2013, 2014, 4, gol, flex, automatico);
+		Marca volks = criarBaseService.getMarcaOuCria(_CriarBaseService.VOLKSWAGEM);
+		Categoria categoria = criarBaseService.getCategoriaOuCria(_CriarBaseService.HATCH);
+		Subcategoria subcategoria = criarBaseService.getSubcategoriaOuCria(_CriarBaseService.POPULAR, categoria);
+		Modelo gol = criarBaseService.getModeloOuCria(_CriarBaseService.VOLKSWAGEM_GOL, volks, subcategoria);
+		Combustivel flex = criarBaseService.getCombustivelOuCria(_CriarBaseService.FLEX);
+		Cambio automatico = criarBaseService.getCambioOuCria(_CriarBaseService.CAMBIO_AUTOMATICO);
+		Versao tec1ponto02014 = criarBaseService.getVersaoOuCria("TEC", 1.0f, 2013, 2014, 4, gol, flex, automatico);
 		
 		List<Foto> fotos = new ArrayList<Foto>();
 		
-		Cor amarelo = this._criarBaseService.getCorOuCria(_CriarBaseService.AMARELO);		
-		Loja matriz = this._criarBaseService.getLojaOuCria(_CriarBaseService.LOJA_MATRIZ);
+		Cor amarelo = this.criarBaseService.getCorOuCria(_CriarBaseService.AMARELO);		
+		Loja matriz = this.criarBaseService.getLojaOuCria(_CriarBaseService.LOJA_MATRIZ);
 		
 		VeiculoBuilder vb = new VeiculoBuilder();
 		Veiculo veiculo = vb

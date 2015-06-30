@@ -8,9 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.diegolirio.revendaveiculos.builder.CorBuilder;
 import com.diegolirio.revendaveiculos.builder.FotoBuilder;
-import com.diegolirio.revendaveiculos.builder.LojaBuilder;
 import com.diegolirio.revendaveiculos.builder.MarcaBuilder;
 import com.diegolirio.revendaveiculos.builder.ModeloBuilder;
 import com.diegolirio.revendaveiculos.builder.OpcionalBuilder;
@@ -18,6 +16,7 @@ import com.diegolirio.revendaveiculos.builder.UsuarioBuilder;
 import com.diegolirio.revendaveiculos.builder.VeiculoBuilder;
 import com.diegolirio.revendaveiculos.builder.VersaoBuilder;
 import com.diegolirio.revendaveiculos.model.Cambio;
+import com.diegolirio.revendaveiculos.model.Categoria;
 import com.diegolirio.revendaveiculos.model.Combustivel;
 import com.diegolirio.revendaveiculos.model.Cor;
 import com.diegolirio.revendaveiculos.model.Foto;
@@ -25,6 +24,7 @@ import com.diegolirio.revendaveiculos.model.Loja;
 import com.diegolirio.revendaveiculos.model.Marca;
 import com.diegolirio.revendaveiculos.model.Modelo;
 import com.diegolirio.revendaveiculos.model.Opcional;
+import com.diegolirio.revendaveiculos.model.Subcategoria;
 import com.diegolirio.revendaveiculos.model.Usuario;
 import com.diegolirio.revendaveiculos.model.Veiculo;
 import com.diegolirio.revendaveiculos.model.VeiculoOpcional;
@@ -41,12 +41,16 @@ import com.diegolirio.revendaveiculos.service.UsuarioService;
 import com.diegolirio.revendaveiculos.service.VeiculoOpcionalService;
 import com.diegolirio.revendaveiculos.service.VeiculoService;
 import com.diegolirio.revendaveiculos.service.VersaoService;
+import com.diegolirio.revendaveiculos.service._CriarBaseService;
 
 @Controller
 public class HomeController {
 	
 	private static final String BRANCO = "Branco";
 
+	@Autowired
+	private _CriarBaseService _criarBaseService;
+	
 	@Autowired
 	private MarcaService marcaService;
 
@@ -131,14 +135,14 @@ public class HomeController {
 	private void criarPegeout3082014() {
 		
 		Marca pegeout = this.getMarcaOuCria("Pegeout");
-		Cor cor = this.getCorOuCria("Preto");
-		Loja matriz = getLojaOuCria("Matriz");
+		Cor cor = this._criarBaseService.getCorOuCria("Preto");
+		Loja matriz = this._criarBaseService.getLojaOuCria("Matriz");
 
 		ModeloBuilder mb = new ModeloBuilder();
 		Modelo modelo = mb
 				.comDescricao("308")
 				.comMarca(pegeout)
-				.getInstance();
+				.build();
 		this.modeloService.save(modelo);
 
 		Combustivel flex = this.getCombustivelOuCria("Flex");
@@ -239,7 +243,7 @@ public class HomeController {
 		Modelo ecosport = mb
 				.comDescricao("Ecosport")
 				.comMarca(ford)
-				.getInstance();
+				.build();
 		this.modeloService.save(ecosport);		
 		
 		VersaoBuilder versaoBuilder = new VersaoBuilder();
@@ -260,8 +264,8 @@ public class HomeController {
 				.build();
 		this.versaoService.save(versao);		
 		
-		Cor vermelho = this.getCorOuCria(BRANCO);
-		Loja matriz = getLojaOuCria("Matriz");
+		Cor vermelho = this._criarBaseService.getCorOuCria(BRANCO);
+		Loja matriz = this._criarBaseService.getLojaOuCria("Matriz");
 		
 		List<Foto> fotos = new ArrayList<Foto>();		
 		
@@ -300,7 +304,7 @@ public class HomeController {
 		Modelo range = mb
 				.comDescricao("Range Rover Evoque")
 				.comMarca(land)
-				.getInstance();
+				.build();
 		this.modeloService.save(range);		
 		
 		VersaoBuilder versaoBuilder = new VersaoBuilder();
@@ -321,8 +325,8 @@ public class HomeController {
 				.build();
 		this.versaoService.save(versao);		
 		
-		Cor cor = this.getCorOuCria("Dourado");
-		Loja matriz = getLojaOuCria("Matriz");
+		Cor cor = this._criarBaseService.getCorOuCria("Dourado");
+		Loja matriz = this._criarBaseService.getLojaOuCria("Matriz");
 		
 		List<Foto> fotos = new ArrayList<Foto>();		
 		
@@ -355,39 +359,26 @@ public class HomeController {
 	}	
 	
 	private void criarGol2014() {
-		Marca volks = this.getMarcaOuCria("Volksvagem");
 		
-		Cor amarelo = this.getCorOuCria("Amarelo");
-		
-		Loja matriz = getLojaOuCria("Matriz");
-		
-		ModeloBuilder mb = new ModeloBuilder();
-		Modelo gol = mb
-				.comDescricao("Gol")
-				.comMarca(volks)
-				.getInstance();
-		this.modeloService.save(gol);
-		
-		VersaoBuilder versaoBuilder = new VersaoBuilder();
-		Versao versao = versaoBuilder
-				.comDescricao("TEC")
-				.comMotor(1.0f)
-				.comModelo(gol)
-				.comAnoFabricacao(2013)
-				.comAnoModelo(2014)
-				.comQuantidadePortas(4)
-				.build();
-		this.versaoService.save(versao);
+		Marca volks = _criarBaseService.getMarcaOuCria(_CriarBaseService.VOLKSWAGEM);
+		Categoria categoria = _criarBaseService.getCategoriaOuCria(_CriarBaseService.HATCH);
+		Subcategoria subcategoria = _criarBaseService.getSubcategoriaOuCria(_CriarBaseService.POPULAR, categoria);
+		Modelo gol = _criarBaseService.getModeloOuCria(_CriarBaseService.VOLKSWAGEM_GOL, volks, subcategoria);
+		Combustivel flex = _criarBaseService.getCombustivelOuCria(_CriarBaseService.FLEX);
+		Cambio automatico = _criarBaseService.getCambioOuCria(_CriarBaseService.CAMBIO_AUTOMATICO);
+		Versao tec1ponto02014 = _criarBaseService.getVersaoOuCria("TEC", 1.0f, 2013, 2014, 4, gol, flex, automatico);
 		
 		List<Foto> fotos = new ArrayList<Foto>();
 		
+		Cor amarelo = this._criarBaseService.getCorOuCria(_CriarBaseService.AMARELO);		
+		Loja matriz = this._criarBaseService.getLojaOuCria(_CriarBaseService.LOJA_MATRIZ);
 		
 		VeiculoBuilder vb = new VeiculoBuilder();
 		Veiculo veiculo = vb
 				.comCor(amarelo)
 				.comKm(46218.0d)
 				.comLoja(matriz)
-				.comVersao(versao)
+				.comVersao(tec1ponto02014)
 				.comUrlFotoPrincipal("http://carplace.uol.com.br/wp-content/uploads/2013/05/Novo_Gol_Rallye_2014_02-2.jpg")
 				.comFotos(fotos)
 				.comValor(32000.00)
@@ -467,14 +458,6 @@ public class HomeController {
 //		this.fotoService.save(f8);
 		
 	}
-	
-	private Cor getCorOuCria(String descricao) {
-		Cor cor = this.corService.getPorDescricao(descricao);
-		CorBuilder cb = new CorBuilder();
-		cor = cb.comDescricao(descricao).getInstance();
-		this.corService.save(cor);
-		return cor;
-	}
 
 	private Marca getMarcaOuCria(String descricao) {
 		Marca marca = this.marcaService.getPorDescricao(descricao);
@@ -496,16 +479,6 @@ public class HomeController {
 			this.opcionalService.save(opcional);
 		}
 		return opcional;
-	}
-
-	private Loja getLojaOuCria(String descricao) {
-		Loja loja = this.lojaService.getPorDescricao(descricao);
-		if(loja == null) {
-			LojaBuilder lb = new LojaBuilder();
-			loja = lb.comDescricao(descricao).getInstance();
-			this.lojaService.save(loja);
-		}
-		return loja;
 	}
 	
 	private Cambio getCambioOuCria(String descricao) {

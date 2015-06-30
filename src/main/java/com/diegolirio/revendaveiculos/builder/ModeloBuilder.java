@@ -2,6 +2,7 @@ package com.diegolirio.revendaveiculos.builder;
 
 import com.diegolirio.revendaveiculos.model.Marca;
 import com.diegolirio.revendaveiculos.model.Modelo;
+import com.diegolirio.revendaveiculos.model.Subcategoria;
 
 public class ModeloBuilder {
 
@@ -10,6 +11,8 @@ public class ModeloBuilder {
 	private String descricao; 
 	
 	private Marca marca;
+
+	private Subcategoria subcategoria;
 	
 	public ModeloBuilder comId(long id) {
 		this.id = id;
@@ -26,8 +29,16 @@ public class ModeloBuilder {
 		return this;
 	}
 	
-	public Modelo getInstance() {
-		return new Modelo(id, descricao, marca);
+	public ModeloBuilder comSubcategoria(Subcategoria subcategoria) {
+		this.subcategoria = subcategoria;
+		return this;
 	}
+	
+	public Modelo build() {
+		Modelo modelo = new Modelo(id, descricao, marca);
+		modelo.setSubcategoria(subcategoria);
+		return modelo;
+	}
+
 	
 }
